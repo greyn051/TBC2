@@ -1,0 +1,2 @@
+﻿  12-6_RegisterVariables.c
+D:\github-repository\TBC\Chapter12\Chapter12_solution\12-6_RegisterVariables\12-6_RegisterVariables.c(16): error C2103: '&' on register variable
