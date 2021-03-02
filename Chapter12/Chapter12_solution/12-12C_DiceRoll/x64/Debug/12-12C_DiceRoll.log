@@ -1,0 +1,4 @@
+﻿  12-13_AllocatedMemory.c
+D:\github-repository\TBC\Chapter12\Chapter12_solution\12-12C_DiceRoll\12-13_AllocatedMemory.c(10,6): warning C4101: 'arr': unreferenced local variable
+D:\github-repository\TBC\Chapter12\Chapter12_solution\12-12C_DiceRoll\12-13_AllocatedMemory.c(7,8): warning C4101: 'x': unreferenced local variable
+  12-12C_DiceRoll.vcxproj -> D:\github-repository\TBC\Chapter12\Chapter12_solution\x64\Debug\12-13_AllocatedMemory.exe
