@@ -1,4 +1,4 @@
-# Chapter 12. Storage Classes, Linkage and Memory Management
+# TBC-12 Storage Classes, Linkage and Memory Management
 
 ## 12.1 메모리 레이아웃 훑어보기
 
@@ -1816,14 +1816,14 @@ int main() {
 
 ## 12.19 멀티 쓰레딩(Multi_Threading)
 
-#define \_CRT_SECURE_NO_WARNINGS
+#define \_CRT*SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <windows.h>
-/_
+/*
 C언어 표준에는 멀티스레딩이 들어와 있지 않다.
 대부분의 경우 운영체제에서 제공하는 API 사용
 운영체제에 따라서 사용하는 프로그래밍 기술이 다르다.
-_/
+\_/
 
 //\_Atomic int acnt = 0; // NA
 
