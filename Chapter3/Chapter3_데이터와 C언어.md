@@ -1,23 +1,35 @@
-# TBC-3\_데이터와 C언어
+# TBC-3 데이터와 C언어
 
-## 3.6\_정수의 오버플로우
+## 3.1 데이터와 자료형(Data, Data Types)
 
-    #define _CRT_SECURE_NO_WARNINGS
+컴퓨터는 근본적으로 데이터를 처리하는 기계
 
-    #include <stdio.h>
+## 3.2 변수(Variable)와 상수(Constants)
 
-    int main() {
-        unsigned int i = 0;
+## 3.3 scanf() 함수의 기본적인 사용법
 
-        printf("%u\n", sizeof(unsigned int));
-        printf("%u", sizeof(i));
+## 3.4 간단한 콘솔 입출력 프로그램 만들기
 
-        return 0;
+## 3.5 정수와 실수
 
-    }
+## 3.6 정수의 오버플로우(Overflow)
 
----
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
+#include <stdio.h>
+
+int main() {
+    unsigned int i = 0;
+
+    printf("%u\n", sizeof(unsigned int));
+    printf("%u", sizeof(i));
+
+    return 0;
+}
+```
+
+```c
 #include <stdio.h>
 
 int main()
@@ -27,11 +39,10 @@ unsigned int i = 0b11111111111111111111111111111111;
     printf("%u\n", i);
 
     return 0;
-
 }
+```
 
-//
-
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -44,11 +55,10 @@ unsigned int u = UINT_MAX;
     printf("%u\n", u);
 
     return 0;
-
 }
+```
 
-//
-
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -65,13 +75,12 @@ signed int i_min = INT_MIN;
     printf("min of int = %d\n", i_min);
 
     return 0;
-
 }
+```
 
-//
+#### overflow 실행
 
-overflow 실행
-
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -81,11 +90,10 @@ unsigned int u_max = UINT_MAX + 1;
 printf("%u", u_max);
 
     return 0;
-
 }
+```
 
-//
-
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -102,11 +110,12 @@ unsigned int u_max = UINT_MAX;
     printf("binary: %s\n", buffer);
 
     return 0;
-
 }
+```
 
 or
 
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -121,11 +130,12 @@ unsigned int u_max = UINT_MAX + 1;
     printf("binary: %s\n", buffer);
 
     return 0;
-
 }
+```
 
 or
 
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -140,12 +150,10 @@ unsigned int u_max = 0 - 1;
     printf("binary: %s\n", buffer);
 
     return 0;
-
 }
+```
 
-//
-
-#3.7
+## 3.7 8진수와 16진수
 
 #include <stdio.h>
 #include <limits.h>
@@ -583,3 +591,7 @@ creal(z)는 실수 부분
 cimag(z)는 허수 부분을 가져와서 출력
 복소수의 나누기도 구현
 원래 표준에는 \_Imaginary도 있어야 하는데 gcc에서도 조차 구현되어 있지 않다.
+
+```
+
+```
