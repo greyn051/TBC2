@@ -34,7 +34,7 @@ int main() {
 
 int main()
 {
-unsigned int i = 0b11111111111111111111111111111111;
+    unsigned int i = 0b11111111111111111111111111111111;
 
     printf("%u\n", i);
 
@@ -48,8 +48,8 @@ unsigned int i = 0b11111111111111111111111111111111;
 
 int main()
 {
-unsigned int i = 0b11111111111111111111111111111111;
-unsigned int u = UINT_MAX;
+    unsigned int i = 0b11111111111111111111111111111111;
+    unsigned int u = UINT_MAX;
 
     printf("%u\n", i);
     printf("%u\n", u);
@@ -64,10 +64,10 @@ unsigned int u = UINT_MAX;
 
 int main()
 {
-unsigned int u_max = UINT_MAX;
-unsigned int u_min = 0;
-signed int i_max = INT_MAX;
-signed int i_min = INT_MIN;
+    unsigned int u_max = UINT_MAX;
+    unsigned int u_min = 0;
+    signed int i_max = INT_MAX;
+    signed int i_min = INT_MIN;
 
     printf("max of uint = %u\n", u_max);
     printf("min of uint = %u\n", u_min);
@@ -86,8 +86,8 @@ signed int i_min = INT_MIN;
 
 int main()
 {
-unsigned int u_max = UINT_MAX + 1;
-printf("%u", u_max);
+    unsigned int u_max = UINT_MAX + 1;
+    printf("%u", u_max);
 
     return 0;
 }
@@ -99,7 +99,7 @@ printf("%u", u_max);
 
 int main()
 {
-unsigned int u_max = UINT_MAX;
+    unsigned int u_max = UINT_MAX;
 
     // i to binary representation
     char buffer[33];
@@ -121,7 +121,7 @@ or
 
 int main()
 {
-unsigned int u_max = UINT_MAX + 1;
+    unsigned int u_max = UINT_MAX + 1;
 
     char buffer[33];
     _itoa(u_max, buffer, 2);
@@ -141,7 +141,7 @@ or
 
 int main()
 {
-unsigned int u_max = 0 - 1;
+    unsigned int u_max = 0 - 1;
 
     char buffer[33];
     _itoa(u_max, buffer, 2);
@@ -162,16 +162,16 @@ unsigned int u_max = 0 - 1;
 
 int main()
 {
-char c = 65;
-short s = 200;
-unsigned int ui = 3000000000U;//3'000'000'000U
-long l = 65537L;
-long long ll = 12345678908642LL; // 12'345'678'908'642LL
-printf("char = %hhd, %d, %c\n",c, c, c);
-printf("short = %hhd, %hd, %d\n", s, s, s);
-printf("unsigned int = %u, %d\n", ui, ui);
-printf("long = %ld, %hd\n", l, l);
-printf("long long = %lld, %ld\n", ll, ll);
+    char c = 65;
+    short s = 200;
+    unsigned int ui = 3000000000U;//3'000'000'000U
+    long l = 65537L;
+    long long ll = 12345678908642LL; // 12'345'678'908'642LL
+    printf("char = %hhd, %d, %c\n",c, c, c);
+    printf("short = %hhd, %hd, %d\n", s, s, s);
+    printf("unsigned int = %u, %d\n", ui, ui);
+    printf("long = %ld, %hd\n", l, l);
+    printf("long long = %lld, %ld\n", ll, ll);
 
     return 0;
 }
@@ -186,14 +186,14 @@ printf("long long = %lld, %ld\n", ll, ll);
 
 int main()
 {
-unsigned int decimal = 4294967295;
-unsigned int binary = 0b11111111111111111111111111111111; // 1이 32개
-unsigned int oct = 037777777777;
-unsigned int hex = 0xffffffff;
-printf("%u\n", decimal);
-printf("%u\n", binary);
-printf("%u\n", oct);
-printf("%u\n", hex);
+    unsigned int decimal = 4294967295;
+    unsigned int binary = 0b11111111111111111111111111111111; // 1이 32개
+    unsigned int oct = 037777777777;
+    unsigned int hex = 0xffffffff;
+    printf("%u\n", decimal);
+    printf("%u\n", binary);
+    printf("%u\n", oct);
+    printf("%u\n", hex);
 
     printf("%o %x %#o %#x %#X\n", decimal, decimal, decimal, decimal, decimal);
 
@@ -210,12 +210,12 @@ printf("%u\n", hex);
 
 int main()
 {
-int i;
-int32_t i32; // 32 bit integer
-int_least8_t i8; // smallest 8 bit
-int_fast8_t f8; // fastest minimum
-intmax_t imax; // biggest signed integers
-uintmax_t uimax; // biggest unsigned integer
+    int i;
+    int32_t i32; // 32 bit integer
+    int_least8_t i8; // smallest 8 bit
+    int_fast8_t f8; // fastest minimum
+    intmax_t imax; // biggest signed integers
+    uintmax_t uimax; // biggest unsigned integer
 
     i32 = 1004;
 
@@ -234,8 +234,8 @@ uintmax_t uimax; // biggest unsigned integer
 
 int main()
 {
-char c = 'A';
-char d = 65; // d = 'A'
+    char c = 'A';
+    char d = 65; // d = 'A'
 
     printf("%c %hhd\n", c, c);
     printf("%c %hhd\n", d, d);
@@ -251,8 +251,8 @@ char d = 65; // d = 'A'
 
 int main()
 {
-char c = 'A';
-char d = 65; // d = 'A'
+    char c = 'A';
+    char d = 65; // d = 'A'
 
     printf("%c %hhd\n", c, c);
     printf("%c %hhd\n", d, d);
@@ -286,9 +286,9 @@ char d = 65; // d = 'A'
 #include <float.h>
 
 int main() {
-printf("%u\n", sizeof(float));
-printf("%u\n", sizeof(double));
-printf("%u\n", sizeof(long double));
+    printf("%u\n", sizeof(float));
+    printf("%u\n", sizeof(double));
+    printf("%u\n", sizeof(long double));
 
     float f = 123.456f;
     double d = 123.456;
@@ -321,11 +321,11 @@ printf("%u\n", sizeof(long double));
 #include <float.h>
 
 int main() {
-//round-off errors (ex1)
-float a, b;
-a = 1000.0f + 1.0f;
-b = a - 1000.0f;
-printf("%f\n", b);
+    //round-off errors (ex1)
+    float a, b;
+    a = 1000.0f + 1.0f;
+    b = a - 1000.0f;
+    printf("%f\n", b);
 
     return 0;
 }
@@ -336,11 +336,11 @@ printf("%f\n", b);
 
 ```c
 int main() {
-//round-off errors (ex1)
-float a, b;
-a = 1.0E20f + 1.0f;
-b = a - 1.0E20f;
-printf("%f\n", b);
+    //round-off errors (ex1)
+    float a, b;
+    a = 1.0E20f + 1.0f;
+    b = a - 1.0E20f;
+    printf("%f\n", b);
 
     return 0;
 }
@@ -352,8 +352,8 @@ printf("%f\n", b);
 
 ```c
 int main() {
-//round-off errors (ex2)
-float a = 0.0f;
+    //round-off errors (ex2)
+    float a = 0.0f;
 
     a = a + 0.01f;
     a = a + 0.01f;
@@ -471,11 +471,11 @@ float a = 0.0f;
 
 ```c
 int main() {
-//overflow
-float max = 3.402823466e+38F; // float가 가질 수 있는 가장 큰 수, float.h에서 가져옴
-printf("%f\n", max);
-max = max \* 100.0f; // 거기다 100을 곱한다.
-printf("%f\n", max);
+    //overflow
+    float max = 3.402823466e+38F; // float가 가질 수 있는 가장 큰 수, float.h에서 가져옴
+    printf("%f\n", max);
+    max = max \* 100.0f; // 거기다 100을 곱한다.
+    printf("%f\n", max);
 
     return 0;
 }
@@ -487,11 +487,11 @@ double의 한계를 돌파해보자
 
 ```c
 int main() {
-//overflow
-double max = 1.7976931348623158e+308;
-printf("%f\n", max);
-max = max \* 100.0f;
-printf("%f\n", max);
+    //overflow
+    double max = 1.7976931348623158e+308;
+    printf("%f\n", max);
+    max = max \* 100.0f;
+    printf("%f\n", max);
 
     return 0;
 }
@@ -503,11 +503,11 @@ printf("%f\n", max);
 
 ```c
 int main() {
-//underflow
-float f = 1.401298464e-45F; // FLT_TRUE_MIN 에서 가져옴
-printf("%e\n", f);
-f = f / 100.0f; // subnormal
-printf("%e\n", f);
+    //underflow
+    float f = 1.401298464e-45F; // FLT_TRUE_MIN 에서 가져옴
+    printf("%e\n", f);
+    f = f / 100.0f; // subnormal
+    printf("%e\n", f);
 
     return 0;
 }
@@ -602,8 +602,8 @@ vsc는 복소수 지원 좀 더 잘 해줌
 
 int main()
 {
-//double \_Imaginary i = 3;
-double \_Complex z = 1 + 2 \* I;
+    //double _Imaginary i = 3;
+    double _Complex z = 1 + 2 \* I;
 
     z = 1 / z;
 
