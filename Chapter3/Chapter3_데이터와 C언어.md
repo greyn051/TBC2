@@ -153,8 +153,9 @@ unsigned int u_max = 0 - 1;
 }
 ```
 
-## 3.7 8진수와 16진수
+## 3.7 다양한 정수형들
 
+```c
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
@@ -173,11 +174,12 @@ printf("long = %ld, %hd\n", l, l);
 printf("long long = %lld, %ld\n", ll, ll);
 
     return 0;
-
 }
+```
 
-#3.8
+## 3.8 8진수와 16진수
 
+```c
 #include <stdio.h>
 #include <limits.h>
 #include <stdlib.h>
@@ -196,11 +198,12 @@ printf("%u\n", hex);
     printf("%o %x %#o %#x %#X\n", decimal, decimal, decimal, decimal, decimal);
 
     return 0;
-
 }
+```
 
-#3.9
+## 3.9 고정 너비 정수
 
+```c
 #include <stdio.h>
 //#include <stdint.h> // also included in inttypes.h
 #include <inttypes.h>
@@ -221,11 +224,12 @@ uintmax_t uimax; // biggest unsigned integer
     printf("me32 = %" PRId32 "\n", i32);
 
     return 0;
-
 }
+```
 
-#3.10
+## 3.10 문자형
 
+```c
 #include <stdio.h>
 
 int main()
@@ -237,11 +241,12 @@ char d = 65; // d = 'A'
     printf("%c %hhd\n", d, d);
 
     return 0;
-
 }
+```
 
-#3.10
+#3.10 문자형
 
+```c
 #include <stdio.h>
 
 int main()
@@ -271,11 +276,12 @@ char d = 65; // d = 'A'
     printf("\\ \'HA+\' \"Hello\" \?\n");
 
     return 0;
-
 }
+```
 
-#3.11
+## 3.11 부동소수점형
 
+```c
 #include <stdio.h>
 #include <float.h>
 
@@ -305,11 +311,12 @@ printf("%u\n", sizeof(long double));
     printf("%a %A\n", d5, d5);
 
     return 0;
-
 }
+```
 
-#3.12
+## 3.12 부동소수점형의 한계
 
+```c
 #include <stdio.h>
 #include <float.h>
 
@@ -321,11 +328,13 @@ b = a - 1000.0f;
 printf("%f\n", b);
 
     return 0;
-
 }
+```
 
 //
 이렇게 하면 아까와 같이 1이 나올 것 같지만 0이 나온다.
+
+```c
 int main() {
 //round-off errors (ex1)
 float a, b;
@@ -334,11 +343,14 @@ b = a - 1.0E20f;
 printf("%f\n", b);
 
     return 0;
-
 }
+```
+
 숫자가 너무 크면 상대적으로 작은 숫자는 사라져 버린다.
 //
 밑에 a에 0.01f 100번 더할 거임(※스압 주의)
+
+```c
 int main() {
 //round-off errors (ex2)
 float a = 0.0f;
@@ -447,8 +459,9 @@ float a = 0.0f;
     printf("%f\n", a);
 
     return 0;
-
 }
+```
+
 그런데 1이 아니고 0.9999999 가 나온다
 이유는 0.01f위에 커서를 올리면 0.009999~ 뜨는데
 0.01로 정확하게 표현할 수 없기 때문이다. 그리고 이 오차가 쌓여서 차이가 난다.
@@ -456,6 +469,7 @@ float a = 0.0f;
 이진수를 십지수로 표현할 때 정확하게 표현하기 어렵기 때문에 오차가 난다.
 //
 
+```c
 int main() {
 //overflow
 float max = 3.402823466e+38F; // float가 가질 수 있는 가장 큰 수, float.h에서 가져옴
@@ -464,11 +478,14 @@ max = max \* 100.0f; // 거기다 100을 곱한다.
 printf("%f\n", max);
 
     return 0;
-
 }
+```
+
 float 숫자 범위 넘어가면 inf로 표시된다. double로 바꾸면 괜찮음
 //
 double의 한계를 돌파해보자
+
+```c
 int main() {
 //overflow
 double max = 1.7976931348623158e+308;
@@ -477,12 +494,14 @@ max = max \* 100.0f;
 printf("%f\n", max);
 
     return 0;
-
 }
+```
+
 그럼 inf가 뜬다
 
 // underflow
 
+```c
 int main() {
 //underflow
 float f = 1.401298464e-45F; // FLT_TRUE_MIN 에서 가져옴
@@ -491,13 +510,15 @@ f = f / 100.0f; // subnormal
 printf("%e\n", f);
 
     return 0;
-
 }
+```
 
 이 경우 0이 나온다.
 숫자가 너무 작아서 사라지는 경우 > subnormal
 
 // 0으로 나누기
+
+```c
 int main() {
 
     float f = 104.0f;
@@ -506,10 +527,12 @@ int main() {
     printf("%f\n", f);
 
     return 0;
-
 }
+```
 
 //
+
+```c
 int main() {
 
     float f = asinf(1.0f);
@@ -519,16 +542,16 @@ int main() {
     printf("%f\n", f);
 
     return 0;
-
 }
+```
 
 컴터는 어쩔 수 없이 답을 내지만
 -nan(ind) 라고 뜬다(수학적으로 존재할 수 없는 값을 답으로 낼 때 이런식으로 나온다)
 (not a number)
-//
 
-#3.13
+## 3.13 불리언형
 
+```c
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -549,13 +572,14 @@ int main() {
     printf("%d %d\n", b2, b3);
 
     return 0;
-
 }
+```
 
-#3.14
+## 3.14 복소수형
 
 // vs에서
 
+```c
 #include <stdio.h>
 #include <complex.h>
 
@@ -566,11 +590,13 @@ int main() {
     z._Val[1] = 1.0;
 
     return 0;
-
 }
+```
 
 //vsc, gcc 에서
 vsc는 복소수 지원 좀 더 잘 해줌
+
+```c
 #include <stdio.h>
 #include <complex.h>
 
@@ -584,14 +610,11 @@ double \_Complex z = 1 + 2 \* I;
     printf("1 / (1.0 + 2.0i) = %.1f%+.1fi", creal(z), cimag(z));
 
     return 0;
-
 }
+```
+
 I는 허수 부분을 의미한다(Imaginary number)
 creal(z)는 실수 부분
 cimag(z)는 허수 부분을 가져와서 출력
 복소수의 나누기도 구현
 원래 표준에는 \_Imaginary도 있어야 하는데 gcc에서도 조차 구현되어 있지 않다.
-
-```
-
-```
