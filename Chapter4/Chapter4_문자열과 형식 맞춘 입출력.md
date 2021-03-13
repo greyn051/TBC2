@@ -43,7 +43,9 @@ int main() {
 ```
 
 //
-#4.2
+
+## 4.2 sizeof 연산자
+
 // sizeof(), size_t
 
 ```c
@@ -131,7 +133,8 @@ int main() {
 ```
 
 //
-#4.3 문자열이 메모리에 저장되는 원리
+
+## 4.3 문자열이 메모리에 저장되는 구조, 원리
 
 // 배열의 index
 
@@ -192,7 +195,8 @@ int main() {
 ```
 
 //
-#4.4 strlen() 함수
+
+## 4.4 strlen() 함수
 
 //
 
@@ -233,7 +237,8 @@ int main() {
 ```
 
 //
-#4.5 기호적 상수와 전처리기 #define
+
+## 4.5 기호적 상수와 전처리기 #define
 
 // 원의 넓이, 원 둘레 구하기
 
@@ -318,7 +323,9 @@ int main() {
 ```
 
 //
-#4.6 명백한 상수들(Manifest Constants)
+
+## 4.6 명백한 상수들(Manifest Constants)
+
 //
 
 ```c
@@ -340,7 +347,9 @@ int main() {
 ```
 
 //
-#4.7 printf() 함수의 변환 지정자들(Conversion Specifiers)
+
+## 4.7 printf() 함수의 변환 지정자들(Conversion Specifiers)
+
 //
 
 ```c
@@ -398,7 +407,9 @@ we owe this to everyone who's not in this room to try.\n");
 ```
 
 //
-#4.8 변환 지정자의 수식어들(Modifiers)
+
+## 4.8 변환 지정자의 수식어들(Modifiers)
+
 //
 
 ```c
@@ -436,7 +447,9 @@ int main() {
 ```
 
 //
-#4.9 printf() 함수가 인자들을 해석하는 과정
+
+## 4.9 printf() 함수가 인자들을 해석하는 과정
+
 //
 
 ```c
@@ -461,7 +474,9 @@ int main() {
 ```
 
 //
-#4.10 scanf() 함수의 사용법
+
+## 4.10 scanf() 함수의 사용법
+
 //
 
 ```c
