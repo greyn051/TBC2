@@ -1,5 +1,8 @@
-#4.1
+# TBC-4 문자열과 형식 맞춘 입출력
 
+## 4.1 문자열 입출력하기
+
+```c
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -16,12 +19,15 @@ int main() {
 
 	return 0;
 }
+```
 
 위와 같이 하고 Banana 입력하면
 You like B!
 이래 뜸
 //
 배열을 사용하자 > name[40], %s
+
+```c
 int main() {
 
 	char fruit_name[40]; // stores only one character.
@@ -34,11 +40,13 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 #4.2
 // sizeof(), size_t
 
+```c
 #include <stdio.h>
 #include <stdlib.h> // malloc()
 
@@ -60,11 +68,13 @@ int main() {
 
 	return 0;
 }
+```
 
 // 배열을 직접 sizeof하면 전체 배열의 크기가 나오고(120byte)
 포인터를 sizeof 하면 그 주소에 해당된 크기만 나온다.(4byte)
 (그런데 프로그래밍 할 때 배열 자체도 주소로 생각하는게 편할 때가 많다)(이건 예외라고 생각하자)
 
+```c
 int main() {
 
 	/* 2. sizeof arrays */
@@ -78,9 +88,11 @@ int main() {
 
 	return 0;
 }
+```
 
 // string에서 null을 저장공간으로 하나 가짐
 
+```c
 int main() {
 
 	/* 3. sizeof character array */
@@ -96,11 +108,13 @@ int main() {
 
 	return 0;
 }
+```
 
 //구조체 struct의 크기
 
+```c
 struct MyStruct {
-	
+
 	int i;
 	float f;
 };
@@ -111,14 +125,17 @@ int main() {
 	/* 4. sizeof structure */
 
 	printf("%zu\n", sizeof(struct MyStruct));
-	
+
 	return 0;
 }
+```
 
 //
 #4.3 문자열이 메모리에 저장되는 원리
 
 // 배열의 index
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -129,12 +146,14 @@ int main() {
 	printf("%i %i %i\n", int_arr[0], int_arr[1], int_arr[9]);
 
 	printf("%i\n", int_arr[10000]); // 범위 넘어가면 오류 뜸
-	
+
 	return 0;
 }
+```
 
 //문자의 배열, /0(null)의 역할과 존재이유
 
+```c
 int main() {
 
 	char c = 'a';
@@ -150,6 +169,7 @@ int main() {
 
 	return 0;
 }
+```
 
 pritnf는 문자 배열 내부에서 0을 만나면 더 이상 출력 x
 str2[2] 이후 부터 모든 값 0
@@ -160,6 +180,7 @@ str2[2] 이후 부터 모든 값 0
 char str3[20] = "Hello, \0World";
 중간에 null charcater 넣으면 이후에 출력 x, 무시당함(printf의 특성)
 
+```c
 int main() {
 
 	char str3[10] = "Hello, World"; // array size is not enough
@@ -168,11 +189,14 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 #4.4 strlen() 함수
 
 //
+
+```c
 #include <stdio.h>
 #include <string.h> // strlen and more
 
@@ -190,25 +214,30 @@ int main() {
 
 	return 0;
 }
+```
 
 // 동적할당 맛보기
 
+```c
 int main() {
 
 	/* Extra */
 	char *str5 = (char*)malloc(sizeof(char) * 100);
 	str5[0] = 'H'; str5[1] = 'e'; str5[2] = '1'; str5[3] = '1'; str5[4] = 'o';
 	str5[5] = '\0';
-	
+
 	printf("%zu %zu\n", sizeof(str5), strlen(str5));
 
 	return 0;
 }
+```
 
 //
 #4.5 기호적 상수와 전처리기 #define
 
 // 원의 넓이, 원 둘레 구하기
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -231,10 +260,12 @@ int main() {
 
 	return 0;
 }
+```
 
 // 원 공식 만들 때 pi를 사람이 계속 입력하면 실수가 나오기 쉽다.
 그래서 PI를 기호적 상수로 미리 정의해서 쓰자.
 
+```c
 #include <stdio.h>
 #define PI 3.141592f
 
@@ -256,9 +287,11 @@ int main() {
 
 	return 0;
 }
+```
 
 // 문자열도 define해보자(AI 이름)
 
+```c
 #include <stdio.h>
 #define PI 3.141592f
 #define AI_NAME "Jarvis" // 언제든 편리하게 수정 가능
@@ -282,10 +315,13 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 #4.6 명백한 상수들(Manifest Constants)
 //
+
+```c
 #include <stdio.h>
 #include <limits.h> // INT_MAX, ..., etc.
 #include <float.h>  // FLT_MAX, ..., etc.
@@ -301,10 +337,13 @@ int main() {
 
 	return 0;
 }
+```
+
 //
 #4.7 printf() 함수의 변환 지정자들(Conversion Specifiers)
 //
 
+```c
 #include <stdio.h>
 #include <limits.h> // INT_MAX, ..., etc.
 #include <float.h>  // FLT_MAX, ..., etc.
@@ -356,11 +395,13 @@ we owe this to everyone who's not in this room to try.\n");
 
 	return 0;
 }
+```
 
 //
 #4.8 변환 지정자의 수식어들(Modifiers)
 //
 
+```c
 #include <stdio.h>
 #include <limits.h>
 
@@ -386,17 +427,19 @@ int main() {
 	printf("%.s\n", "ABCDEFGHIJKLMN");// assumes .0 // 숫자 0이 들어있는 것과 동일하게 작동, 출력 안 보임
 
 	printf("\nLength\n");
-	printf("%hhd %hd %d\n", 257, 257, 257); // h는 짧다는 뜻, hh이면 char(unsigned char일 경우 256까지 있음) 
+	printf("%hhd %hd %d\n", 257, 257, 257); // h는 짧다는 뜻, hh이면 char(unsigned char일 경우 256까지 있음)
 	printf("%d %lld %lld\n", INT_MAX + 1, INT_MAX + 1, 2147483648LL); // switch to x64
 	//lld를 넣으면 정상적으로 나온다, 숫자 뒤에 LL을 붙여서 long long이라는 것을 표현, 단 x86에서 작동시키면 다르게 나온다
 
 	return 0;
 }
+```
 
 //
 #4.9 printf() 함수가 인자들을 해석하는 과정
 //
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -415,11 +458,13 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 #4.10 scanf() 함수의 사용법
 //
 
+```c
 #include <stdio.h>
 #include <inttypes.h> // intmax_t
 
@@ -434,9 +479,11 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* character */
@@ -447,11 +494,13 @@ int main() {
 
 	return 0;
 }
+```
 
-// 
+//
 unsigned 임에도 불구하고 signed 값을 받아서 반환한다.
 (이런 트릭을 사용하는 코딩은 좋지 않다)
 
+```c
 int main() {
 
 	/* Unsigned as signed */
@@ -461,10 +510,12 @@ int main() {
 
 	return 0;
 }
+```
 
-// 
+//
 %u는 unsigned 만 받기 때문에 음수를 넣으면 overflow 발생
 
+```c
 int main() {
 
 	/* Unsigned as unsigned */
@@ -474,11 +525,13 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 scanf에서 double은 %lf로 받아들인다.(%f 받으면 오류 생김)
 printf에서 double은 %f로 출력한다.
 
+```c
 int main() {
 
 	/* floating point numbers */
@@ -489,9 +542,11 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* Width */
@@ -501,9 +556,11 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* h modifier */
@@ -513,33 +570,39 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* integer with characters */
 	int i;
 	scanf("%i", &i);	// try '123ab', '123a456' // 문자를 만나면 더 이상 해석 중단
-	printf("%i\n", i);	
+	printf("%i\n", i);
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* j modifier */
 	intmax_t i;		// 가장 큰 정수형 타입, long long이다.
 	scanf("%ji", &i);	// intmax_t를 받아들인다는 앞에 의미로 j를 붙인다.
-	printf("%ji\n", i);	
+	printf("%ji\n", i);
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* Regular characters */
@@ -550,13 +613,15 @@ int main() {
 	//scanf("%d,%d", &a, &b);
 	/*scanf("%d-%d", &a, &b);   // , 외 다른 문자도 가능
 	scanf("%dA%d", &a, &b);*/
-	printf("%d %d\n", a, b);	
+	printf("%d %d\n", a, b);
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* char receives blank */
@@ -567,9 +632,11 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* return calue of scanf() */
@@ -579,9 +646,11 @@ int main() {
 
 	return 0;
 }
+```
 
 //
 
+```c
 int main() {
 
 	/* *modifier for scanf() */
@@ -591,11 +660,6 @@ int main() {
 
 	return 0;
 }
+```
 
 //
-
-
-
-
-
-
