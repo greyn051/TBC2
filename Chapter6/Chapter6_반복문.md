@@ -62,11 +62,13 @@ int main() {
 }
 ```
 
-// \*반복되는 코드 줄이기(status 부분) //TODO: C-style shortcut
+//
+⭐반복되는 코드 줄이기(status 부분) //TODO: C-style shortcut
 
+```c
 int main() {
-int num, sum = 0;
-printf("Enter an integer (q to quit) : ");
+    int num, sum = 0;
+    printf("Enter an integer (q to quit) : ");
 
     while (scanf("%d", &num) == 1)	// 장점: 코드가 깔끔해짐, 단점: 코드를 주의깊게 봐야함
     {
@@ -80,14 +82,15 @@ printf("Enter an integer (q to quit) : ");
     //TODO: C-style shortcut
 
     return 0;
-
 }
+```
 
 //
 
-#6.3 진입조건 루프(Entry-Condition Loop) while
+## 6.3 진입조건 루프(Entry-Condition Loop) while
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -137,13 +140,14 @@ int main() {
     // do something (?)
 
     return 0;
-
 }
+```
 
 //
 
-#6.4 관계 연산자(Relational Operator)
+## 6.4 관계 연산자(Relational Operator)
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -169,19 +173,20 @@ int main() {
     	printf("%c ", c++);
 
     return 0;
-
 }
+```
 
 //
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <math.h> //fabs()
 
 int main() {
-// 상수 정의 할 때 const 사용 권장
-const double PI = 3.1415026535897932384626433832795;
-double guess = 0.0;
+    // 상수 정의 할 때 const 사용 권장
+    const double PI = 3.1415026535897932384626433832795;
+    double guess = 0.0;
 
     printf("Input pi : ");
     scanf("%lf", &guess);
@@ -195,63 +200,68 @@ double guess = 0.0;
     printf("Good!");
 
     return 0;
-
 }
+```
 
 //
 
-#6.5 사실과 거짓
+## 6.5 사실과 거짓
 
+```c
 #include <stdio.h>
 
 int main() {
-int tv, fv;
-tv = (1 < 2); // true value
-fv = (1 > 2); // false value
+    int tv, fv;
+    tv = (1 < 2); // true value
+    fv = (1 > 2); // false value
 
     printf("True is %d\n", tv);
     printf("False is %d\n", fv);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
-int i = -5;
-while (i)
-printf("%d is true\n", i++);
-printf("%d is false\n", i);
+    int i = -5;
+    while (i)
+    printf("%d is true\n", i++);
+    printf("%d is false\n", i);
 
     return 0;
-
 }
+```
 
 //
-#6.6 \_Bool 자료형
 
+## 6.6 \_Bool 자료형
+
+```c
 #include <stdio.h>
 
 int main() {
-int i;
-//i = 5; // 대입
-//i == 5; // 비교
-//5 = i;
-//5 == i; // 문법 오류가 없음(비교이기 때문)
+    int i;
+    //i = 5; // 대입
+    //i == 5; // 비교
+    //5 = i;
+    //5 == i; // 문법 오류가 없음(비교이기 때문)
 
     while (i = 5) {/*do something*/ }; // i에 5가 대입되고, expression이 5가 되어 true로 간주됨 but 이렇게 작성한 것은 90%이상 실수한 것일 거임.(실제로 이렇게 사용x, 밑에처럼 사용함)
     while (i == 5) {/*do something*/ };
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
-\_Bool boolean_true = (2 > 1); // 이전에 boolean 타입 쓰던 사람들이 bool이라고 지정해서 사용해왔기 때문에 호환성을 유지하려고 \_Bool로 지음
-\_Bool boolean_false = (1 > 2); // Bool 자료형도 내부적으로는 '정수형'으로 처리된다.
+    _Bool boolean_true = (2 > 1); // 이전에 boolean 타입 쓰던 사람들이 bool이라고 지정해서 사용해왔기 때문에 호환성을 유지하려고 \_Bool로 지음
+    _Bool boolean_false = (1 > 2); // Bool 자료형도 내부적으로는 '정수형'으로 처리된다.
 
     printf("True is %d\n", boolean_true);
     printf("False is %d\n", boolean_false);
@@ -261,35 +271,38 @@ int main() {
     printf(boolean_false ? "true" : "false");
 
     return 0;
-
 }
+```
 
 //
+
+```c
 #include <stdbool.h> 추가하고 나서
 
 #include <stdio.h>
 #include <stdbool.h>
 
 int main() {
-bool bt = true; // 키워드는 아니라서 파란색이 아니다
-bool bf = false; // 예전에 프로그래머들이 bool 만들어서 쓰던거 표준화한 것임
+    bool bt = true; // 키워드는 아니라서 파란색이 아니다
+    bool bf = false; // 예전에 프로그래머들이 bool 만들어서 쓰던거 표준화한 것임
 
     printf("\n");
     printf("True is %d\n", bt);
     printf("Flase is %d\n", bf);
 
     return 0;
-
 }
+```
 
 //
 
-#6.7 관계 연산자의 우선순위
+## 6.7 관계 연산자의 우선순위
 
+```c
 #include <stdio.h>
 
 int main() {
-int x = 1, y = 2, z;
+    int x = 1, y = 2, z;
 
     x > y + 2;		// +가 > 우선순위 높아서 밑과 같다.
     x > (y + 2);	// 지금 붙어 있는 statement들은 같은 의미라는 뜻이다.
@@ -304,23 +317,24 @@ int x = 1, y = 2, z;
     (x != y) == z;
 
     return 0;
-
 }
+```
 
 //
 
-#6.8 for 루프 소개
+## 6.8 for 루프 소개
 
 //
 while은 indefinite loop를 목적으로 설계
 
+```c
 #include <stdio.h>
 
 int main() {
-// Indefinte loop vs. Counting loop
-while (1) {
-// do something
-}
+    // Indefinte loop vs. Counting loop
+    while (1) {
+    // do something
+    }
 
     /*
     	Counting Loop
@@ -340,14 +354,15 @@ while (1) {
     }
 
     return 0;
-
 }
+```
 
 //
 counting loop 목적인 for문
 
 위와 같은 기능을 for문으로 구현하자
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -362,31 +377,33 @@ int i;
     와 같다*/
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
-for (int i = 1; i <= 10; i++) {
-printf("dummy ");
-printf("%d ", i);
-}
+    for (int i = 1; i <= 10; i++) {
+    printf("dummy ");
+    printf("%d ", i);
+    }
 
     return 0;
-
 }
+```
 
-#6.9 for는 유연해요
+## 6.9 for는 유연해요
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
-/_
-for(initialize; test; update)
-statement
-_/
+    /*
+    for(initialize; test; update)
+    statement
+    */
 
     for (int i = 10; i > 0; i--)
     	printf("%d ", i);
@@ -421,19 +438,20 @@ _/
     	; // null statement
 
     return 0;
-
 }
+```
 
 //
 
-#6.10 다양한 대입 연산자들 (그리고 어셈블리 코드 확인법)
+## 6.10 다양한 대입 연산자들 (그리고 어셈블리 코드 확인법)
 
+```c
 #include <stdio.h>
 
 int main() {
-/_
-+=, -=, _=, /=, %=
-\*/
+    /*
+    +=, -=, *=, /=, %=
+    */
 
     int i = 1024;
 
@@ -450,70 +468,75 @@ int main() {
     	;
 
     return 0;
-
 }
+```
 
 //
-#6.11 콤마(,) 연산자 Comma
 
+## 6.11 콤마(,) 연산자 Comma
+
+```c
 #include <stdio.h>
 
 int main() {
-// , 씀으로서 여러줄에 하는 것을 한줄로도 할 수 있다.
-for (int n = 1, nsqr = n _ n; n < 10; n++, nsqr = n _ n)
-printf("%d %d\n", n, nsqr);
+    // , 씀으로서 여러줄에 하는 것을 한줄로도 할 수 있다.
+    for (int n = 1, nsqr = n _ n; n < 10; n++, nsqr = n _ n)
+    printf("%d %d\n", n, nsqr);
 
     // Note that commas in printf() are not comma operators
     // but separators
 
     return 0;
-
 }
+```
 
 //
 
 ,도 ;와 같은 sequence point
 
+```c
 int main() {
-int i, j;
-i = 1;
-i++, j = i; // comma is a sequence point
-printf("%d %d\n", i, j);
+    int i, j;
+    i = 1;
+    i++, j = i; // comma is a sequence point
+    printf("%d %d\n", i, j);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
-// ,의 연산자 우선순위는 가장 마지막. 그리고 왼쪽에서 오른쪽으로 진행한다.(Left-to-right)
-int x, y, z;
-z = x = 1, y = 2;
-printf("x=%d, y=%d, z=%d \n", x, y, z);
-z = (x = 1), (y = 2);
-printf("x=%d, y=%d, z=%d \n", x, y, z);
-z = ((x = 1), (y = 2)); // ,는 오른쪽에 있는 것이 expression값이다. 그래서 z에는 2가 대입된다.
-printf("x=%d, y=%d, z=%d \n", x, y, z);
+    // ,의 연산자 우선순위는 가장 마지막. 그리고 왼쪽에서 오른쪽으로 진행한다.(Left-to-right)
+    int x, y, z;
+    z = x = 1, y = 2;
+    printf("x=%d, y=%d, z=%d \n", x, y, z);
+    z = (x = 1), (y = 2);
+    printf("x=%d, y=%d, z=%d \n", x, y, z);
+    z = ((x = 1), (y = 2)); // ,는 오른쪽에 있는 것이 expression값이다. 그래서 z에는 2가 대입된다.
+    printf("x=%d, y=%d, z=%d \n", x, y, z);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
-//int my_money = 123,456; // error 프로그래밍 언어에서 숫자에 ,찍으면 에러난다.
-int my_money = (123, 456); // , 오른쪽이 전체 expression의 값
-printf("%d\n", my_money);
+    //int my_money = 123,456; // error 프로그래밍 언어에서 숫자에 ,찍으면 에러난다.
+    int my_money = (123, 456); // , 오른쪽이 전체 expression의 값
+    printf("%d\n", my_money);
 
     return 0;
-
 }
+```
 
 //
 
-#6.12 제논의 역설 시뮬레이션 예제
+## 6.12 제논의 역설 시뮬레이션 예제
 
 //
 
@@ -531,6 +554,8 @@ printf("%d\n", my_money);
     */ 이러한 코드 만들기
 
 ※ 내가 한 코드
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -545,15 +570,17 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
 int main() {
-const double speed = 1.0;
-const unsigned repeat_max = 10;
+    const double speed = 1.0;
+    const unsigned repeat_max = 10;
 
     double dt = 1.0;
     double time = 0.0;		// Elaped time
@@ -568,8 +595,8 @@ const unsigned repeat_max = 10;
     }
 
     return 0;
-
 }
+```
 
 //
 위에 코드 수정해서 제논의 역설 식 만들기
@@ -584,6 +611,8 @@ const unsigned repeat_max = 10;
     */
 
 ※ 내가 한 코드
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -609,8 +638,8 @@ int main() {
     //Note: infinite geometric series
 
     return 0;
-
 }
+```
 
 dt가 double일 때 dt = dt / 2; 해도 되긴 한다.
 하지만 C/C++의 엄격함을 따라 가려면 dt = dt / 2.0;으로 쓰는 것이 좋다.
@@ -619,6 +648,7 @@ dt가 double일 때 dt = dt / 2; 해도 되긴 한다.
 그래서 *를 쓰는 것이 좋다.
 dt = dt / 2.0;을 dt = dt _ 0.5;로 쓰는 것이 일반적. 더 나아가서 dt _= 0.5;
 
+```c
 int main() {
 
     const double speed = 1.0;
@@ -642,8 +672,8 @@ int main() {
     //Note: infinite geometric series
 
     return 0;
-
 }
+```
 
 repeat_max를 100으로 해도 time이 2를 넘어가지 못한다.
 제논의 역설에서 말하는 무한 등비 급수 infinite geometric series
@@ -651,6 +681,7 @@ repeat_max를 100으로 해도 time이 2를 넘어가지 못한다.
 //
 제논의 역설 구현
 
+```c
 int main() {
 
     const double speed = 1.0;
@@ -682,17 +713,20 @@ int main() {
     //Note: infinite geometric series
 
     return 0;
-
 }
+```
 
 //
-#6.13 탈출조건 루프(Exit-Condition Loop) do while
+
+## 6.13 탈출조건 루프(Exit-Condition Loop) do while
 
 비밀번호를 미리 설정해 놓고 그 비밀번호를 여러번 쳐서
 알맞는 숫자를 입력하면 끝나는 프로그램 만들어보자
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -707,10 +741,12 @@ int main() {
     printf("Good!");
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 int main() {
 
     const int secret_code = 337;
@@ -727,12 +763,13 @@ int main() {
     printf("Good!");
 
     return 0;
-
 }
+```
 
 똑같은 코드를 while 이전에 무조건 한 번 해야하는 경우
 중복된 코드를 줄이기 위해서 do while문을 사용
 
+```c
 int main() {
 
     const int secret_code = 337;
@@ -747,17 +784,17 @@ int main() {
     printf("Good!");
 
     return 0;
-
 }
+```
 
 동일하게 작동하지만 훨씬 간결하다.
 //
 
-#6.14 어떤 루프를 사용할까?
+## 6.14 어떤 루프를 사용할까?
 
 //
 
-#6.15 중첩된(nested) 루프들
+## 6.15 중첩된(nested) 루프들
 
 ex 1)
 원하는 첫글자부터 원하는 마지막 글자까지
@@ -766,6 +803,8 @@ ex 1)
 A B C D E F G H I J K 5줄 쓰는 것 구현하기.
 
 ※ 내 코드
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -782,10 +821,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
 #define NUM_ROWS 5
@@ -805,8 +846,8 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 ex 2)
@@ -818,6 +859,8 @@ A B C
 원하는 개수만큼 쌓이도록 출력
 
 ※ 내 코드
+
+````c
 #include <stdio.h>
 
 #define NUM_ROWS 10
@@ -838,10 +881,10 @@ int main() {
     }
 
     return 0;
-
 }
 
 ※ 교수님 코드
+```c
 #include <stdio.h>
 
 #define NUM_ROWS 10
@@ -860,8 +903,9 @@ int main() {
     }
 
     return 0;
-
 }
+````
+
 outer loop의 변수가
 inner loop의 변수에 연결돼 있는 경우가 상당히 많다.
 
@@ -875,6 +919,8 @@ L
 처럼 점점 내려가기 구현
 
 ※ 내 코드
+
+```c
 #include <stdio.h>
 
 #define NUM_ROWS 12
@@ -893,10 +939,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
 #define NUM_ROWS 12
@@ -915,14 +963,15 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 내가 위 쪽 예제 코드를 기반으로 만들어서 그런지
 교수님 코드와 내 코드가 같다.
 
 or
 
+```c
 #include <stdio.h>
 
 #define FIRST_CHAR 'A'
@@ -943,14 +992,16 @@ int main() {
     }
 
     return 0;
-
 }
+```
+
 이와 같이 const를 쓰는 식으로 만들어도 된다.
 scanf를 사용해서 좀 더 interactive하게도 가능
 //
 
-#6.16 배열(Array)과 런타임(Runtime) 에러
+## 6.16 배열(Array)과 런타임(Runtime) 에러
 
+```c
 #include <stdio.h>
 
 #define NUM_DAYS 365
@@ -967,11 +1018,12 @@ int main() {
     printf("%zd\n", sizeof(stock_prices_history[0]));
 
     return 0;
-
 }
+```
 
 //
 
+```c
 #include <stdio.h>
 
 #define NUM_DAYS 365
@@ -996,11 +1048,13 @@ int main() {
     printf("%d\n", my_numbers[4]); // 나중에 for문 써서 한 줄로 바꿈
 
     return 0;
-
 }
+```
 
 //
 배열 사용 시 오류들
+
+```c
 int main() {
 
     int my_numbers[5];
@@ -1014,13 +1068,14 @@ int main() {
     printf("%d\n", my_numbers[5]); // out of bound
 
     return 0;
-
 }
+```
 
 //
 
-#6.17 for 루프를 배열과 함께 사용하기
+## 6.17 for 루프를 배열과 함께 사용하기
 
+```c
 #include <stdio.h>
 
 #define SIZE 5
@@ -1042,8 +1097,8 @@ int main() {
     //TODO: try debugger
 
     return 0;
-
 }
+```
 
 //
 ex)
@@ -1054,13 +1109,15 @@ ex)
 (입력받는 개수도 define으로 바꿀 수 있으면 더 좋음)
 
 ※ 내 코드
+
+```c
 #include <stdio.h>
 
 #define SIZE 5
 
 int main() {
-int input[SIZE];
-int sum = 0;
+    int input[SIZE];
+    int sum = 0;
 
     printf("Enter 5 numbers : ");
 
@@ -1072,20 +1129,22 @@ int sum = 0;
     printf("Sum = %d\n", sum);
 
     return 0;
-
 }
+```
 
 //
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
 #define SIZE 5
 
 int main() {
-int numbers[SIZE];
-int sum = 0;
-int i;
+    int numbers[SIZE];
+    int sum = 0;
+    int i;
 
     printf("Enter %d numbers : ", SIZE);
 
@@ -1103,22 +1162,23 @@ int i;
     printf("Sum = %d\n", sum);
 
     return 0;
-
 }
+```
 
 //
 
-#6.18 루프 안에서 함수의 반환값 사용하기
+## 6.18 루프 안에서 함수의 반환값 사용하기
 
 제곱 구하는 프로그램 같이 구현
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
-// 제곱 구해주는 프로그램
-// 3 4 입력하면
-// 3*3*3\*3 = 81 이런식으로 나오게
+    // 제곱 구해주는 프로그램
+    // 3 4 입력하면
+    // 3*3*3\*3 = 81 이런식으로 나오게
 
     int base, exp, i, result;
     scanf("%d %d", &base, &exp);
@@ -1130,17 +1190,18 @@ int main() {
     printf("Result = %d\n", result);
 
     return 0;
-
 }
+```
 
 //
 
 - 입력 반복하는 것도 구현
 
+```c
 int main() {
-// 제곱 구해주는 프로그램
-// 3 4 입력하면
-// 3*3*3\*3 = 81 이런식으로 나오게
+    // 제곱 구해주는 프로그램
+    // 3 4 입력하면
+    // 3*3*3\*3 = 81 이런식으로 나오게
 
     int base, exp, i, result;
 
@@ -1153,8 +1214,8 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 위 루프 안의 코드를 함수로 만들어서 빼고 다시 받아오자.
@@ -1164,7 +1225,8 @@ int main() {
 main에서 정의된 변수들은함수에서 바로 쓸 수 없다.
 함수에서 별도로 정의를 해 줘야 한다.
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int compute_pow(int base, int exp) {
@@ -1176,9 +1238,10 @@ int compute_pow(int base, int exp) {
     	result *= base;
 
     return result; // 계산 결과 반환
-
 }
+```
 
+```c
 int main() {
 
     int base, exp, i, result;
@@ -1191,13 +1254,14 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 함수의 prototype
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int compute_pow(int base, int exp); // prototype (이런 함수가 있다고 알려줌)
@@ -1214,7 +1278,6 @@ int main() {
     }
 
     return 0;
-
 }
 
 int compute_pow(int base, int exp) {
@@ -1226,7 +1289,7 @@ int compute_pow(int base, int exp) {
     	result *= base;
 
     return result; // 계산 결과 반환
-
 }
+```
 
 //
