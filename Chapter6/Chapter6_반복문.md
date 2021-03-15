@@ -16,8 +16,11 @@ int main() {
 	printf("Enter an integer (q to quit) : ");
 
 	status = scanf("%d", &num);		// return value of scanf() // scanf의 반환값은 입력받은 변수의 개수를 return 값으로 돌려줌
-									// 정수를 입력하면 num이라는 변수에 하나를 입력받았기 때문에 status 변수에 1이라는 값이 저장됨.
-									// 만약 숫자가 아니라 q라는 문자를 입력했다면 그 때는 정수로 입력을 받을 수가 없기 때문에 입력을 받지 않는다. 그럼 입력받은 변수의 개수가 0이므로 status의 값도 0이다.
+    /*
+        정수를 입력하면 num이라는 변수에 하나를 입력받았기 때문에 status 변수에 1이라는 값이 저장됨.
+        만약 숫자가 아니라 q라는 문자를 입력했다면 그 때는 정수로 입력을 받을 수가 없기 때문에 입력을 받지 않는다.
+        그럼 입력받은 변수의 개수가 0이므로 status의 값도 0이다.
+    */
 
 	while (status == 1)				// equality operator (==)
 	{
@@ -249,7 +252,8 @@ int main() {
     //5 = i;
     //5 == i; // 문법 오류가 없음(비교이기 때문)
 
-    while (i = 5) {/*do something*/ }; // i에 5가 대입되고, expression이 5가 되어 true로 간주됨 but 이렇게 작성한 것은 90%이상 실수한 것일 거임.(실제로 이렇게 사용x, 밑에처럼 사용함)
+    while (i = 5) {/*do something*/ };
+    // i에 5가 대입되고, expression이 5가 되어 true로 간주됨 but 이렇게 작성한 것은 90%이상 실수한 것일 거임.(실제로 이렇게 사용x, 밑에처럼 사용함)
     while (i == 5) {/*do something*/ };
 
     return 0;
@@ -260,7 +264,7 @@ int main() {
 
 ```c
 int main() {
-    _Bool boolean_true = (2 > 1); // 이전에 boolean 타입 쓰던 사람들이 bool이라고 지정해서 사용해왔기 때문에 호환성을 유지하려고 \_Bool로 지음
+    _Bool boolean_true = (2 > 1); // 이전에 boolean 타입 쓰던 사람들이 bool이라고 지정해서 사용해왔기 때문에 호환성을 유지하려고 _Bool로 지음
     _Bool boolean_false = (1 > 2); // Bool 자료형도 내부적으로는 '정수형'으로 처리된다.
 
     printf("True is %d\n", boolean_true);
@@ -1195,7 +1199,7 @@ int main() {
 
 //
 
-- 입력 반복하는 것도 구현
+// + 입력 반복하는 것도 구현
 
 ```c
 int main() {
@@ -1220,7 +1224,7 @@ int main() {
 //
 위 루프 안의 코드를 함수로 만들어서 빼고 다시 받아오자.
 
-- 영역(scope)라는 개념 나온다.
+⭐ 영역(scope)라는 개념 나온다.
 
 main에서 정의된 변수들은함수에서 바로 쓸 수 없다.
 함수에서 별도로 정의를 해 줘야 한다.
