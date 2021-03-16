@@ -72,14 +72,14 @@ int main() {
     putchar(ch);		// 문자를 출력함
 
     return 0;
-
 }
 ```
 
 //
 
-- getchar, putchar와 buffer
+⭐ getchar, putchar와 buffer
 
+```c
 #include <stdio.h> // getchar(), putchar()
 
 int main() {
@@ -107,8 +107,8 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 한글자만 입력받고 출력한댔는데 여러문자 다 됨.
 이유는 buffer라는 공간에 입력받은 문자들을 두었다가
@@ -119,6 +119,7 @@ buffer라는 개념 매우 중요\*
 //
 한 block안에 넣어 만들어 보자
 
+```c
 int main() {
 
     /*
@@ -137,14 +138,15 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 while에 대입과 비교 모두 하는 구조
 // 3. Filter a specific character
 입력한 문자를 원하는 문자로 바꾸기
 if문 while 안에
 
+```c
 int main() {
 
     char ch;
@@ -159,11 +161,12 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     char ch;
@@ -180,12 +183,13 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
 익숙해지면 논리연산자 쓴다.
 
+```c
 int main() {
 
     char ch;
@@ -200,12 +204,14 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 // 4. Convert numbers to asterisks
 
 노가다
+
+```c
 int main() {
 
     char ch;
@@ -229,12 +235,13 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
 for문 이용
 
+```c
 int main() {
 
     char ch;
@@ -250,12 +257,13 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
 && 이용
 
+```c
 int main() {
 
     char ch;
@@ -270,12 +278,13 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
-// 5. Lower characters to Upper characters
+// 5. Lower characters to Upper characters⭐
 
-- int main() {
+```c
+int main() {
 
       char ch;
 
@@ -289,12 +298,13 @@ int main() {
       putchar(ch);
 
       return 0;
-
-  }
+}
+```
 
 //
 대문자 > 소문자로도 바꾸기
 
+```c
 int main() {
 
     char ch;
@@ -311,23 +321,25 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
-#7.3 ctype.h 문자 함수들
+
+## 7.3 ctype.h 문자 함수들
 
 대문자 > 소문자
 소문자 > 대문자
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <ctype.h> // isalpha() and more
 
-/_
-Reference link
-https://www.tutorialspoint.com/c_standard_library/ctype_h.htm
-_/
+/*
+    Reference link
+    https://www.tutorialspoint.com/c_standard_library/ctype_h.htm
+*/
 
 int main() {
 
@@ -345,13 +357,16 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
-숫자 > \*로 변환
-isdigit(ch) 사용
 
+```c
+/*
+    숫자 > *로 변환
+    isdigit(ch) 사용
+*/
 int main() {
 
     char ch;
@@ -371,15 +386,17 @@ int main() {
     putchar(ch);
 
     return 0;
-
 }
+```
 
 //
-#7.4 다중 선택 else if
+
+## 7.4 다중 선택 else if
 
 종합소득세 계산하는 프로그램 만드는 문제
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 // assessment standard tax base
@@ -438,23 +455,27 @@ int main() {
     printf("Your income after tax deduction = %f", income - tax);
 
     return 0;
-
 }
+```
 
 빈칸보고 똑같이 구현함
 
 마지막 else if에
 else만 가능
 
-else // if (income > BASE6)
-{
-tax = BASE1 _ RATE1 + (BASE2 - BASE1) _ RATE2 + (BASE3 - BASE2) _ RATE3 + (BASE4 - BASE3) _ RATE4 + (BASE5 - BASE4) _ RATE5 + (BASE6 - BASE5) _ RATE6 + (income - BASE6) \* RATE7;
-}
+```c
+    else // if (income > BASE6)
+    {
+    tax = BASE1 _ RATE1 + (BASE2 - BASE1) _ RATE2 + (BASE3 - BASE2) _ RATE3 + (BASE4 - BASE3) _ RATE4 + (BASE5 - BASE4) _ RATE5 + (BASE6 - BASE5) _ RATE6 + (income - BASE6) \* RATE7;
+    }
+```
+
 //
 
-#7.5 else와 if 짝짓기
+## 7.5 else와 if 짝짓기
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -470,11 +491,12 @@ int main() {
     	printf("Three");
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     int number;
@@ -492,12 +514,13 @@ int main() {
     // minimun 127 levels of nestings
 
     return 0;
-
 }
+```
 
 //
 컴파일러는 인덴팅 무시함
 
+```c
 int main() {
 
     int number;
@@ -514,14 +537,17 @@ int main() {
     // Compilers ignore indenting
 
     return 0;
-
 }
+```
+
 밑 if에 else가 적용된다.
-\*else는 가까이 있는 if에 적용된다.
+⭐else는 가까이 있는 if에 적용된다.
 
 //
-위 if에 else 붙이고 싶다면 \*헷갈릴 여지가 있는 경우 중괄호{}를 쳐라
+위 if에 else 붙이고 싶다면
+⭐헷갈릴 여지가 있는 경우 중괄호{}를 쳐라
 
+```c
 int main() {
 
     int number;
@@ -538,17 +564,20 @@ int main() {
     	printf("Less than or equal to 5");
 
     return 0;
-
 }
+```
 
 //
-#7.6 소수 판단 예제
+
+## 7.6 소수 판단 예제
 
 소수인지 아닌지 판별하는 프로그램 만드는 예제
 prime number : 소수
 
 ※ 내가 한 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -585,10 +614,12 @@ int main() {
     	printf("%u is not a prime number.\n", num);
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 int main() {
 
     unsigned num, div;
@@ -616,12 +647,13 @@ int main() {
     	printf("%u is not a prime number.\n", num);
 
     return 0;
-
 }
+```
 
 //
 위 프로그램을 좀 더 업그레이드해서 약수까지 찾게 만들기
 
+```c
 int main() {
 
     unsigned num, div;
@@ -650,13 +682,14 @@ int main() {
     	printf("%u is not a prime number.\n", num);
 
     return 0;
-
 }
+```
 
 //
 중복되는 약수 줄이기
 ex) 2로 나누어지면 4나 8로도 나누어진다고 출력x
 
+```c
 int main() {
 
     unsigned num, div;
@@ -689,13 +722,15 @@ int main() {
     	printf("%u is not a prime number.\n", num);
 
     return 0;
-
 }
+```
 
 //
-#7.7 논리 연산자(Logical Operators)
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 7.7 논리 연산자(Logical Operators)
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <ctype.h> // islower()
@@ -721,11 +756,12 @@ int main() {
     printf("%d %d %d\n", test1, test2, test3);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 #define PERIOD '.'
 
 int main() {
@@ -744,13 +780,15 @@ int main() {
     printf("%d", count);
 
     return 0;
-
 }
+```
 
 //
 글자수에 줄바꿈은 제외하기
 
 ※ 내 코드
+
+```c
 #define PERIOD '.'
 
 int main() {
@@ -771,10 +809,12 @@ int main() {
     printf("%d", count);
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 int main() {
 
     /* Character counting example */
@@ -792,12 +832,13 @@ int main() {
     printf("%d", count);
 
     return 0;
-
 }
+```
 
 //
 빈칸도 count 빼보자
 
+```c
 #define PERIOD '.'
 
 int main() {
@@ -817,12 +858,13 @@ int main() {
     printf("%d", count);
 
     return 0;
-
 }
+```
 
 //
 iso646.h
 
+```c
 int main() {
 
     /*
@@ -843,12 +885,13 @@ int main() {
 
 
     return 0;
-
 }
+```
 
 //
 우선순위, 괄호
 
+```c
 int main() {
 
     /*
@@ -869,12 +912,13 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 //
-\*Short-circuit Evaluation
+⭐Short-circuit Evaluation
 
+```c
 int main() {
 
     /*
@@ -898,11 +942,12 @@ int main() {
     printf("After : %d\n", temp);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     /*
@@ -922,8 +967,8 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 홍교수님은 개인적으로
 저렇게 논리연산자에 증가연산자 쓰는 것을 매우 싫어함
@@ -931,6 +976,8 @@ int main() {
 (성능에서 차이나는 경우가 있기 때문에 알아는 두어야한다.)
 
 //
+
+```c
 int main() {
 
     /* Ranges */
@@ -951,11 +998,12 @@ int main() {
 
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     /* Ranges */
@@ -973,11 +1021,12 @@ int main() {
     // 위 두가지 방식 다 사용하긴 한다.
 
     return 0;
-
 }
+```
 
 //
-#7.8 단어 세기 예제
+
+## 7.8 단어 세기 예제
 
 ex) 입력 받은 문장에서 단어가 몇 개인지 세는 프로그램
 characters
@@ -992,7 +1041,8 @@ line
 (첫 번째 힌트만 보고 작성)
 (작동은 됨)
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <ctype.h> // islower()
@@ -1027,12 +1077,13 @@ int main() {
     printf("Characters = %d, Words = %d, Lines = %d\n", n_chars, n_words, n_lines);
 
     return 0;
-
 }
+```
 
 ※ 내가 한 코드 2
 (두 번째 힌트 본 후 작성)
 
+```c
 #define STOP '.'
 
 int main() {
@@ -1074,11 +1125,12 @@ int main() {
     printf("Characters = %d, Words = %d, Lines = %d\n", n_chars, n_words, n_lines);
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
 
+```c
 int main() {
 
     char c;
@@ -1115,13 +1167,15 @@ int main() {
     printf("Characters = %d, Words = %d, Lines = %d\n", n_chars, n_words, n_lines);
 
     return 0;
-
 }
+```
 
 //
-#7.9 조건 연산자(Conditional Operator) ? :
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 7.9 조건 연산자(Conditional Operator) ? :
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdbool.h>
@@ -1136,23 +1190,25 @@ int main() {
     printf("%d\n", temp);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     int a = 1, b = 2;
     int max = (a > b) ? a : b;
 
     return 0;
-
 }
+```
 
 //
 홀짝 구분
 
+```c
 int main() {
 
     int number;
@@ -1171,14 +1227,15 @@ int main() {
     	printf("Odd");
 
     return 0;
-
 }
+```
 
 //
 위의 코드의 첫번째 if문을 조건연산자를 이용해서 구현해라
 
 ※ 내가 한 코드
 
+```c
 int main() {
 
     int number;
@@ -1194,10 +1251,12 @@ int main() {
     	printf("Odd");
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 int main() {
 
     int number;
@@ -1217,14 +1276,15 @@ int main() {
     	printf("Odd");
 
     return 0;
-
 }
+```
 
 //
 홀짝 판별 코드 입력제외 한 줄로 줄이기
 
 ※ 내 코드
 
+```c
 int main() {
 
     int number;
@@ -1233,8 +1293,8 @@ int main() {
     (number % 2 == 0) ? printf("Even") : printf("Odd");
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드 = 내 코드
 
@@ -1246,12 +1306,14 @@ bool is_even = ~
 그에 따라서 기능을 수행하는 것이 일반적이다.
 
 //
-#7.10 루프 도우미 continue와 break
+
+## 7.10 루프 도우미 continue와 break
 
 //
 continue
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -1271,12 +1333,13 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 break
 
+```c
 int main() {
 
     /* break */
@@ -1288,11 +1351,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     /* while and continue */
@@ -1306,11 +1370,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     /* for and continue */
@@ -1322,12 +1387,13 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 placeholder
 
+```c
 int main() {
 
     /* continue as a placeholder */
@@ -1335,11 +1401,12 @@ int main() {
     	continue;
 
     return 0;
-
 }
+```
 
 //
 
+```c
 int main() {
 
     /* Need to use continue */
@@ -1362,13 +1429,14 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
 
-- while(1), break
+⭐while(1), break
 
+```c
 int main() {
 
     /* break */
@@ -1399,12 +1467,13 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 //
 다중 루프에서 break
 
+```c
 int main() {
 
     for (int i = 0; i < 10; i++) {
@@ -1418,16 +1487,19 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
-#7.11 최대, 최소, 평균 구하기 예제
+
+## 7.11 최대, 최소, 평균 구하기 예제
 
 여러 값 입력 받고 그 중에서 가장 작은수, 큰 수 그리고 전체 평균을 출력하는 프로그램
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <float.h>
@@ -1456,8 +1528,8 @@ int main() {
     	printf("No input\n");
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드 = 내 코드
 
@@ -1465,6 +1537,8 @@ int main() {
 음수 무시, 100 이하 값만 받기
 
 ※ 내 코드
+
+```c
 int main() {
 
     float max = -FLT_MAX;
@@ -1494,10 +1568,12 @@ int main() {
     	printf("No input\n");
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 int main() {
 
     float max = -FLT_MAX;
@@ -1523,13 +1599,15 @@ int main() {
     	printf("No input\n");
 
     return 0;
-
 }
+```
 
 //
-#7.12 다중 선택 switch와 case
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 7.12 다중 선택 switch와 case
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <float.h>
@@ -1573,13 +1651,15 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 //
-#7.13 goto를 피하는 방법
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 7.13 goto를 피하는 방법
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <float.h>
@@ -1608,9 +1688,9 @@ b: cost = 100 _ size;
     char c;
 
 read: c = getchar();
-putchar(c);
-if (c == '.') goto quit;
-goto read;
+    putchar(c);
+    if (c == '.') goto quit;
+    goto read;
 quit:
 
     while (1) {
@@ -1622,8 +1702,8 @@ quit:
     // 나가야할 조건에는 break; 사용
 
     return 0;
-
 }
+```
 
 예전에는 goto문을 매우 많이 사용했다.
 
