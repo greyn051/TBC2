@@ -46,7 +46,8 @@ int main() {
 
 EOF
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -58,12 +59,13 @@ int main() {
     	putchar(c);
 
     return 0;
-
 }
+```
 
 //
 과연 들어온게 EOF 맞는지 확인
 
+```c
 int main() {
 
     char c;
@@ -79,15 +81,17 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
-#8.3 입출력 방향 재지정(Redirection)
+
+## 8.3 입출력 방향 재지정(Redirection)
 
 출력 redirection
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -96,9 +100,10 @@ int main() {
     printf("I love apple.\n");
 
     return 0;
-
 }
+```
 
+```
 D:\>cd D:\dev\repository\C\Chapter_3\Chapter_3\Debug
 
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>dir
@@ -129,10 +134,12 @@ D:\dev\repository\C\Chapter_3\Chapter_3\Debug>output.txt
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>explorer .
 
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>notepad output.txt
+```
 
 //
 입력 redirection
 
+```c
 int main() {
 
     char str[100];
@@ -140,18 +147,23 @@ int main() {
     printf("I love %s\n", str);
 
     return 0;
-
 }
+```
 
+```
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>Lecture_3_6 < input.txt
 I love Melon.
 
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>Lecture_3_6<input.txt>output.txt
+```
 
 //
 기존 output에 내용 추가
+
+```
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>Lecture_3_6>>output.txt
 Banana
+```
 
 //
 좀 더 복잡하게
@@ -160,15 +172,19 @@ test.exe의 결과가
 Lecture3.exe로 파이프를 통해 흘러가게 하기
 
 - test.exe
+
+```c
   int main() {
 
       printf("Programming");
 
       return 0;
-
   }
+```
 
 - Lecture_3_6.exe
+
+```c
   int main() {
 
       char str[100];
@@ -176,9 +192,10 @@ Lecture3.exe로 파이프를 통해 흘러가게 하기
       printf("I love %s\n", str);
 
       return 0;
-
   }
+```
 
+```
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>copy Lecture_3_6.exe test.exe
 1개 파일이 복사되었습니다.
 
@@ -186,11 +203,14 @@ D:\dev\repository\C\Chapter_3\Chapter_3\Debug>test.exe
 Programming
 D:\dev\repository\C\Chapter_3\Chapter_3\Debug>test.exe | Lecture_3_6.exe
 I love Programming
+```
 
 //
-#8.4 사용자 인터페이스는 친절하게
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 8.4 사용자 인터페이스는 친절하게
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -211,9 +231,10 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
+```
 Current count is 0. Continue? (y/n)
 y
 Current count is 1. Continue? (y/n)
@@ -233,12 +254,14 @@ what
 Current count is 3. Continue? (y/n)
 the
 Current count is 4. Continue? (y/n)
+```
 
 사용자는 예측하기 어렵다.
 
 //
 좀 더 꼼꼼하게 만들기
 
+```c
 int main() {
 
     int count = 0;
@@ -266,11 +289,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 // 위에 중복되는 것을 아래와 같이 바꿀 수 있다.
 
+```c
 int main() {
 
     int count = 0;
@@ -293,11 +317,12 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
-#8.5 숫자와 문자를 섞어서 입력 받기
+
+## 8.5 숫자와 문자를 섞어서 입력 받기
 
 A 3 2를 입력하면
 AA
@@ -306,7 +331,9 @@ AA
 이렇게 출력하는 프로그램 완성하기
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -326,21 +353,23 @@ int main() {
     }
 
     return 0;
-
 }
 
 void display(char cr, int lines, int width) {
-for (int i = 0; i < lines; ++i) {
-for (int j = 0; j < width; ++j) {
-printf("%c", cr);
+
+    for (int i = 0; i < lines; ++i) {
+        for (int j = 0; j < width; ++j) {
+        printf("%c", cr);
+        }
+    printf("\n");
+    }
 }
-printf("\n");
-}
-}
+```
 
 ※ 교수님 코드
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -375,7 +404,6 @@ int main() {
     }
 
     return 0;
-
 }
 
 void display(char cr, int lines, int width) {
@@ -389,12 +417,15 @@ void display(char cr, int lines, int width) {
     }
 
 }
+```
 
 getchar와 scanf를 섞어서 문자와 숫자를 따로따로 입력받아 보았다.
 //
-#8.6 입력 확인하기
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 8.6 입력 확인하기
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -416,8 +447,8 @@ printf("Please input an integer and press enter.\n");
     printf("Your input %ld is an integer. Thank you.\n", input);
 
     return 0;
-
 }
+```
 
 //
 
@@ -425,7 +456,8 @@ printf("Please input an integer and press enter.\n");
 또 0이상 100이하인지 확인하는 프로그램으로 확장하기
 (위 코드 재활용해야한다) > 함수로 만들기
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -443,7 +475,6 @@ int main() {
     	printf("Wrong input.\n");
 
     return 0;
-
 }
 
 long get_long(void) {
@@ -465,13 +496,15 @@ long get_long(void) {
     printf("Your input %ld is an integer. Thank you.\n", input);
 
     return input;
-
 }
+```
 
 // 여기서 1~100 사이를 초과했을 때 어떻게 처리할까?
 
 ※ 교수님 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -498,7 +531,6 @@ int main() {
     printf("Your input %d is between 1 and 100. Thank you.\n", number);
 
     return 0;
-
 }
 
 long get_long(void) {
@@ -520,21 +552,23 @@ long get_long(void) {
     printf("Your input %ld is an integer. Thank you.\n", input);
 
     return input;
-
 }
+```
 
 //
-#8.7 입력 스트림과 숫자
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 8.7 입력 스트림과 숫자
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
 int main() {
-/_
-Assume that your input is :
-Hello 123 3.14
-_/
+    /*
+    Assume that your input is :
+    Hello 123 3.14
+    */
 
     char str[255];
     int i, i2;
@@ -556,18 +590,20 @@ _/
     printf("\n");
 
     return 0;
-
 }
+```
 
 //
-#8.8 메뉴 만들기 예제 \* retry!
+
+## 8.8 메뉴 만들기 예제 \* retry!
 
 예제를 보고 처음부터 끝까지 구현해봐
 ※ 내 코드
 (망한 코드)
 (getchar 사용법 연습하자!\*)
 
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -604,13 +640,15 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 일부 힌트보기(구조만)
 예제에 메뉴와 다른 문자를 입력하면 다시 입력하라 나와야함
 ※ 내 코드(힌트 봐도 대참사)
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -644,7 +682,6 @@ int main() {
     }
 
     return 0;
-
 }
 
 char get_choice(void) {
@@ -657,7 +694,6 @@ char input;
     scanf("%c", &input);
 
     return input;
-
 }
 
 char get_first_char(void) {
@@ -677,11 +713,13 @@ int i = 0;
     for (int j = 1; j <= i; ++j) {
     	printf("%d\n", j);
     }
-
 }
+```
 
 ※ 교수님 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -715,7 +753,6 @@ int main() {
     }
 
     return 0;
-
 }
 
 void count(void) {
@@ -728,7 +765,6 @@ void count(void) {
     	printf("%d\n", i);
     while (getchar() != '\n')
     	continue;
-
 }
 
 char get_choice(void) {
@@ -749,7 +785,6 @@ char user_input;
     }
 
     return user_input;
-
 }
 
 char get_first_char(void) {
@@ -761,7 +796,6 @@ char get_first_char(void) {
     	continue;
 
     return ch;
-
 }
 
 int get_integer(void) {
@@ -777,13 +811,15 @@ int get_integer(void) {
     }
 
     return input;
-
 }
+```
 
 //
-#8.9 텍스트 파일 읽기
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 8.9 텍스트 파일 읽기
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h> // exit()
@@ -805,7 +841,8 @@ int main() {
     fclose(file);
 
     return 0;
-
 }
+```
+
 텍스트 파일을 읽어들이는 기본적인 방법
 //
