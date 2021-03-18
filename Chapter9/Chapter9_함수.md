@@ -224,9 +224,11 @@ int main() {
 ```
 
 //
-#9.2 함수의 프로토타입
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 9.2 함수의 프로토타입
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <string.h> // strlen()
@@ -250,7 +252,6 @@ int main() {
     print_multiple_chars('*', WIDTH, false);
 
     return 0;
-
 }
 
 void print_multiple_chars(char c, int n_stars, bool print_newline) // parameter
@@ -261,7 +262,6 @@ void print_multiple_chars(char c, int n_stars, bool print_newline) // parameter
 
     if (print_newline)
     	printf("\n");
-
 }
 
 void print_centered_str(char str[]) {
@@ -271,13 +271,15 @@ void print_centered_str(char str[]) {
     n_blanks = (WIDTH - strlen(str)) / 2;
     print_multiple_chars(' ', n_blanks, false);
     printf("%s\n", str);
-
 }
+```
 
 //
-#9.3 함수의 자료형과 반환값
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 9.3 함수의 자료형과 반환값
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -303,17 +305,16 @@ int main() {
     printf("End.\n");
 
     return 0;
-
 }
 
 int int_min(int i, int j)
 //int_min(int i, int j)
 {
-int min;
-if (i < j)
-min = i;
-else
-min = j;
+    int min;
+    if (i < j)
+    min = i;
+    else
+    min = j;
 
     return min;
 
@@ -332,13 +333,15 @@ min = j;
     */
 
     //return; // return with no value
-
 }
+```
 
 //
-#9.4 변수의 영역(Scope)과 지역 변수(Local Variable)
 
-#define \_CRT_SECURE_NO_WARNINGS
+## 9.4 변수의 영역(Scope)과 지역 변수(Local Variable)
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -380,12 +383,13 @@ int main() {
     printf("%p\n", &a);
 
     return 0;
-
 }
+```
 
 여기서 변수 a는 모두 같은 변수인 걸 알 수 있다.
 //
 
+```c
 int main() {
 
     //m = 123;
@@ -411,14 +415,15 @@ int main() {
     printf("%p\n", &a);
 
     return 0;
-
 }
+```
 
 큰 영역 안에 다른 영역을 만들고 그 안에 똑같은 이름의 변수를 선언해버리면
 각각 다른 변수이다.(메모리 주소가 다르다)
 
 // 추가 예제
 
+```c
 int main() {
 
     //m = 123;
@@ -446,18 +451,19 @@ int main() {
     printf("%p\n", &a);
 
     return 0;
-
 }
+```
 
 //
-#9.5 지역 변수와 스택(Stack)
 
+## 9.5 지역 변수와 스택(Stack)
+
+```c
 int int_max(int i, int j) {
 
     int m;
     m = i > j ? i : j;
     return m;
-
 }
 
 int main() {
@@ -480,12 +486,14 @@ int main() {
     }
 
     return 0;
-
 }
+```
 
 //
-#9.6 재귀 호출(Recursion)
 
+## 9.6 재귀 호출(Recursion)
+
+```c
 #include <stdio.h>
 
 void my_func(int);
@@ -495,7 +503,6 @@ int main() {
     my_func(1);
 
     return 0;
-
 }
 
 void my_func(int n) {
@@ -505,13 +512,14 @@ printf("Level %d, address of variable n = %p\n", n, &n);
 
     //TODO: stop condition
     //TODO: tail recursion
-
 }
+```
 
 //
 실전에서 사용하려면
 종료 될 조건 같이 사용
 
+```c
 #include <stdio.h>
 
 void my_func(int);
@@ -521,7 +529,6 @@ int main() {
     my_func(1);
 
     return 0;
-
 }
 
 void my_func(int n) {
@@ -534,14 +541,16 @@ printf("Level %d, address of variable n = %p\n", n, &n);
 
     //TODO: stop condition
     //TODO: tail recursion
-
 }
+```
 
 디버그 하면서 이해해봐
 
 //
-#9.7 재귀 호출(Recursion)과 스택(Stack)
 
+## 9.7 재귀 호출(Recursion)과 스택(Stack)
+
+```c
 #include <stdio.h>
 
 void my_func(int);
@@ -551,7 +560,6 @@ int main() {
     my_func(1);
 
     return 0;
-
 }
 
 void my_func(int n) {
@@ -561,24 +569,27 @@ printf("Level %d, address of variable n = %p\n", n, (int)& n); // ptr -> int cas
     	my_func(n + 1);
 
     printf("Level %d, address of variable n = %p\n", n, (int)& n); // ptr -> int casting
-
 }
+```
 
 //
-#9.8 팩토리얼(Factorial) 예제
+
+## 9.8 팩토리얼(Factorial) 예제
 
 loop와 recursive를 이용해서 둘 다 구현해봐
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
-/_
-loop vs recursion
-factorial : 3! = 3 _ 2 _ 1, 0! = 1
-5! = 5 _ 4! = 5 _ 4 _ 3! = 5 _ 4 _ 3 _ 2! = 5 _ 4 _ 3 _ 2 _ 1! = 5 _ 4 _ 3 _ 2 _ 1 _ 0!
-\*/
+/*
+	loop vs recursion
+	factorial : 3! = 3 * 2 * 1, 0! = 1
+	5! = 5 * 4! = 5 * 4 * 3! = 5 * 4 * 3 * 2! = 5 * 4 * 3 * 2 * 1! = 5 * 4 * 3 * 2 * 1 * 0!
+*/
 
 long loop_factorial(int n);
 long recursive_factorial(int n);
@@ -617,6 +628,7 @@ long recursive_factorial(int n) {
     return factorial;
 
 }
+```
 
 loop_factorial은 구현했는데
 recursive_factorial은 어떻게 factorial 계산 식을 넣어야 할지 모르겠음 gg
@@ -631,13 +643,15 @@ recursive_factorial은 어떻게 factorial 계산 식을 넣어야 할지 모르
 (Don't Panic의 성과)
 
 ※ 힌트를 보고 한 내 코드
+
+```c
 #include <stdio.h>
 
-/_
-loop vs recursion
-factorial : 3! = 3 _ 2 _ 1, 0! = 1
-5! = 5 _ 4! = 5 _ 4 _ 3! = 5 _ 4 _ 3 _ 2! = 5 _ 4 _ 3 _ 2 _ 1! = 5 _ 4 _ 3 _ 2 _ 1 _ 0! // 이 성질이 recursive에서 힌트
-\*/
+/*
+	loop vs recursion
+	factorial : 3! = 3 * 2 * 1, 0! = 1
+	5! = 5 * 4! = 5 * 4 * 3! = 5 * 4 * 3 * 2! = 5 * 4 * 3 * 2 * 1! = 5 * 4 * 3 * 2 * 1 * 0!		// 이 성질이 recursive에서 힌트
+*/
 
 long loop_factorial(int n);
 long recursive_factorial(int n);
@@ -650,7 +664,6 @@ int main() {
     printf("%d\n", recursive_factorial(num));
 
     return 0;
-
 }
 
 long loop_factorial(int n) {
@@ -661,7 +674,6 @@ long ans;
     }
 
     return ans;
-
 }
 
 long recursive_factorial(int n) {
@@ -677,17 +689,19 @@ long recursive_factorial(int n) {
     }
     else
     	return 1;
-
 }
+```
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
-/_
-loop vs recursion
-factorial : 3! = 3 _ 2 _ 1, 0! = 1
-5! = 5 _ 4! = 5 _ 4 _ 3! = 5 _ 4 _ 3 _ 2! = 5 _ 4 _ 3 _ 2 _ 1! = 5 _ 4 _ 3 _ 2 _ 1 _ 0! // 이 성질이 recursive에서 힌트
-\*/
+/*
+	loop vs recursion
+	factorial : 3! = 3 * 2 * 1, 0! = 1
+	5! = 5 * 4! = 5 * 4 * 3! = 5 * 4 * 3 * 2! = 5 * 4 * 3 * 2 * 1! = 5 * 4 * 3 * 2 * 1 * 0!		// 이 성질이 recursive에서 힌트
+*/
 
 long loop_factorial(int n);
 long recursive_factorial(int n);
@@ -700,7 +714,6 @@ int main() {
     printf("%d\n", recursive_factorial(num));
 
     return 0;
-
 }
 
 long loop_factorial(int n) {
@@ -711,7 +724,6 @@ long ans;
     }
 
     return ans;
-
 }
 
 long recursive_factorial(int n) {
@@ -722,27 +734,29 @@ long recursive_factorial(int n) {
     }
     else
     	return 1;
-
 }
+```
 
 //
-#9.9 이진수 변환 예제
+
+## 9.9 이진수 변환 예제
 
 재귀 호출을 이용해서 십진수를 이진수로 변환하는 예제
 
 ※ 내 코드
 loop에서 printf 역으로 출력하는 방법은 모르겠네
 
+```c
 #include <stdio.h>
 
-/_
-10
-10 / 2 = 5, remainder = 0
-5 / 2 = 2, remainder = 1
-2 / 2 = 1, remainder = 0
-1 / 2 = 0, remainder = 1
-1010(이진수)
-_/
+/*
+	10
+	10 / 2 = 5, remainder = 0
+	5 / 2 = 2, remainder = 1
+	2 / 2 = 1, remainder = 0
+	1 / 2 = 0, remainder = 1
+	1010(이진수)
+*/
 
 long print_binary(unsigned long n);
 long print_binary_loop(unsigned long n);
@@ -756,8 +770,8 @@ int main() {
     print_binary_loop(number);
 
     return 0;
-
 }
+
 long print_binary(unsigned long n) {
 if (n > 0) {
 
@@ -768,7 +782,6 @@ if (n > 0) {
     	printf("%d", n % 2);
 
     return 0;
-
 }
 
 long print_binary_loop(unsigned long n) {
@@ -781,21 +794,22 @@ long print_binary_loop(unsigned long n) {
     }
 
     return 0;
-
 }
+```
 
 ※ 교수님 코드
 
+```c
 #include <stdio.h>
 
-/_
-10
-10 / 2 = 5, remainder = 0
-5 / 2 = 2, remainder = 1
-2 / 2 = 1, remainder = 0
-1 / 2 = 0, remainder = 1
-1010(이진수)
-_/
+/*
+	10
+	10 / 2 = 5, remainder = 0
+	5 / 2 = 2, remainder = 1
+	2 / 2 = 1, remainder = 0
+	1 / 2 = 0, remainder = 1
+	1010(이진수)
+*/
 
 long print_binary(unsigned long n);
 long print_binary_loop(unsigned long n);
@@ -810,7 +824,6 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
 
 //Note: printing order is reversed!
@@ -829,7 +842,6 @@ long print_binary_loop(unsigned long num) {
     }
 
     printf("\n");
-
 }
 
 long print_binary(unsigned long num) {
@@ -849,27 +861,29 @@ long print_binary(unsigned long num) {
     printf("%d", remainder);
 
     return;
-
 }
+```
 
 //
-#9.10 피보나치(Fibonacci) 예제와 재귀 호출의 장단점
+
+## 9.10 피보나치(Fibonacci) 예제와 재귀 호출의 장단점
 
 피보나치 수열 출력하는 프로그램
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
-/\*
-Fibonacci sequence
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+/*
+	Fibonacci sequence
+	1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
 
-    ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
-    ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
-
-\*/
+	ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
+	ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
+*/
 
 int fibonacci(int number);
 
@@ -879,38 +893,39 @@ int main() {
     	printf("%d ", fibonacci(count));
 
     return 0;
-
 }
 
 int fibonacci(int number) {
-if (number == 1) {
-return 1;
-}
-else if (number == 2) {
-return 1;
-}
-else if (number > 2) {
 
-    	return fibonacci(number - 2) + fibonacci(number - 1);
-    }
-    else {
-    	printf("error 1");
-    	exit(1);
-    }
+	if (number == 1) {
+		return 1;
+	}
+	else if (number == 2) {
+		return 1;
+	}
+	else if (number > 2) {
 
+		return fibonacci(number - 2) + fibonacci(number - 1);
+	}
+	else {
+		printf("error 1");
+		exit(1);
+	}
 }
+```
 
 ※ 교수님 코드
+
+```c
 #include <stdio.h>
 
-/\*
-Fibonacci sequence
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+/*
+	Fibonacci sequence
+	1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
 
-    ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
-    ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
-
-\*/
+	ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
+	ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
+*/
 
 int fibonacci(int number);
 
@@ -920,61 +935,64 @@ int main() {
     	printf("%d ", fibonacci(count));
 
     return 0;
-
 }
 
 int fibonacci(int number) {
-if (number > 2)
-return fibonacci(number - 1) + fibonacci(number - 2); // double recursion
-else
-return 1;
+
+	if (number > 2)
+		return fibonacci(number - 1) + fibonacci(number - 2); // double recursion
+	else
+		return 1;
 }
 
 //Note: memory (in)efficiency, redundant computation
+```
 
 //
 숫자 늘어날 때 마다 미리 이전에 계산한 것을 사용하지 못하고 다시 계산해서 구현하게 된다.
 (호출이 얼마나 중복되는지 볼 수 있다)
 
+```c
 #include <stdio.h>
 
-/\*
-Fibonacci sequence
-1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+/*
+	Fibonacci sequence
+	1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
 
-    ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
-    ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
-
-\*/
+	ex) fibonacci(5) = 3 + 2 = fibonacci(4) + fibonacci(3)
+	ex) fibonacci(6) = 8 = 5 + 3 = fibonacci(5) + fibonacci(4)
+*/
 
 int fibonacci(int number);
 
 int main() {
 
-    for (int count = 1; count < 13; ++count)
-    	printf("%d ", fibonacci(count));
+	for (int count = 1; count < 13; ++count)
+		printf("%d ", fibonacci(count));
 
-    return 0;
-
+	return 0;
 }
 
 int fibonacci(int number) {
 
-    printf("fibonacci with %d\n", number);
+	printf("fibonacci with %d\n", number);
 
-    if (number > 2)
-    	return fibonacci(number - 1) + fibonacci(number - 2); // double recursion
-    else
-    	return 1;
-
+	if (number > 2)
+		return fibonacci(number - 1) + fibonacci(number - 2); // double recursion
+	else
+		return 1;
 }
 
 //Note: memory (in)efficiency, redundant computation
+```
 
 //
-#9.11 헤더 파일(Header Files) 만들기 (비주얼 스튜디오)
+
+## 9.11 헤더 파일(Header Files) 만들기 (비주얼 스튜디오)
 
 <my_print_functions.h>
+
+```c
 #pragma once // header guard
 
 #include <stdio.h>
@@ -1000,9 +1018,12 @@ void print_str(char\* str) {
 }
 
 // assume that we have many more longer functions
+```
 
 <main.c>
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 //#include <stdio.h> // 이미 "my_print_functions.h"에서 선언해줘서 없어도 됨
 #include "my_print_functions.h"
@@ -1019,14 +1040,16 @@ int main() {
     printf("Hellow!");
 
     return 0;
-
 }
+```
 
 //
 헤더파일에는 선언만 남긴다
 (헤더 파일과 이름이 같은 c파일 만들어서 정의를 그곳으로 옮긴다)
 
 <my_print_functions.h>
+
+```c
 #pragma once // header guard
 
 #include <stdio.h>
@@ -1036,32 +1059,35 @@ void print_hi();
 void print_str(char\* str);
 
 // assume that we have many more longer functions
+```
 
 <my_print_functions.c>
+
+```c
 #include "my_print_functions.h"
 
 void print_hello() {
 
     printf("Hello\n");
     // many more lines
-
 }
 
 void print_hi() {
 
     printf("Hi\n");
     // many more lines
-
 }
 
 void print_str(char\* str) {
 
     printf("%s\n", str);
-
 }
+```
 
 <main.c>
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "my_print_functions.h"
 
@@ -1077,14 +1103,16 @@ int main() {
     printf("Hellow!");
 
     return 0;
-
 }
+```
 
 //
 엄격하게 할려면 헤더파일에 stdio.h를 c파일로 옮긴다.
 그러면 main.c에서 막히는데 다시 선언해줘야한다.
 
 <my_print_functions.h>
+
+```c
 #pragma once // header guard
 
 void print_hello();
@@ -1092,7 +1120,9 @@ void print_hi();
 void print_str(char\* str);
 
 // assume that we have many more longer functions
+```
 
+```c
 <my_print_functions.c>
 #include "my_print_functions.h"
 
@@ -1117,9 +1147,12 @@ void print_str(char\* str) {
     printf("%s\n", str);
 
 }
+```
 
 <main.c>
-#define \_CRT_SECURE_NO_WARNINGS
+
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include "my_print_functions.h"
 #include <stdio.h>
@@ -1136,19 +1169,21 @@ int main() {
     printf("Hellow!");
 
     return 0;
-
 }
+```
 
 근데 현실에서는 크게 중요한 것은 아니다.
 //
 
-#9.12 포인터(Pointer)의 작동 원리
+## 9.12 포인터(Pointer)의 작동 원리
 
 직접적으로 메모리를 사용하는 것이 아니라 간접적으로 가리켜서 사용한다.
 
 //
-#9.13 포인터(Pointer)의 기본적인 사용 방법
 
+## 9.13 포인터(Pointer)의 기본적인 사용 방법
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -1168,11 +1203,13 @@ int main() {
     printf("%d %d %p\n", a, *a_ptr, a_ptr);
 
     return 0;
-
 }
+```
+
 //
 정수형 변수에 주소값 대입하면 warning이 뜬다
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1198,12 +1235,13 @@ int main() {
     printf("%d\n", b);*/
 
     return 0;
-
 }
+```
 
 //
 주소 대입
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1229,12 +1267,13 @@ int main() {
     printf("%d\n", b);*/
 
     return 0;
-
 }
+```
 
 //
 포인터 대입
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1260,12 +1299,13 @@ int main() {
     printf("%d\n", b);
 
     return 0;
-
 }
+```
 
 //
 값을 주소에서 가져와서 그 값을 저장할 때 순수하게 값만 저장한다.
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1296,11 +1336,12 @@ int main() {
     printf("%d %d %p %p\n", a, *a_ptr, a_ptr, &b);
 
     return 0;
-
 }
+```
 
 //
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1339,13 +1380,14 @@ int main() {
     printf("%d %d %p %d\n", a, *a_ptr, a_ptr, b);
 
     return 0;
-
 }
+```
 
 //
 
-#9.14 포인터와 코딩 스타일
+## 9.14 포인터와 코딩 스타일
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1365,14 +1407,16 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 //
-#9.15 NULL 포인터와 런타임 에러
+
+## 9.15 NULL 포인터와 런타임 에러
 
 런타임 에러 나는 경우
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1389,13 +1433,14 @@ int main() {
     printf("%d\n", *ptr);	// 정말 위의 1234 주소로 가서 가져오려고 시도 했음, 막상 가서 보니까 프로그램이 사용하도록 할당받은 공간이 아님, 그래서 강제 종료시킴
 
     return 0;
-
 }
+```
 
 //
 런타임 에러 나는 경우2
 b의 값에 따라서 포인터에 주소를 넣거나 안 넣는 경우 생각 가능
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1414,13 +1459,14 @@ int main() {
     	safer_ptr = &a;
 
     return 0;
-
 }
+```
 
 //
 포인터에 NULL값을 넣어 초기화 하는 것이 일반적이다.
 (그 포인터를 사용해도 되는지 확인, 런타임 에러 방지할 수 있다)
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1444,13 +1490,14 @@ int main() {
     	printf("%d\n", *safer_ptr);
 
     return 0;
-
 }
+```
 
 //
 
-#9.16 디버거로 메모리 들여다보기(비주얼 스튜디오)
+## 9.16 디버거로 메모리 들여다보기(비주얼 스튜디오)
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1461,12 +1508,14 @@ int main() {
     printf("%p %p %p %p", &a, &b, &c, &d);
 
     return 0;
-
 }
+```
 
 //
-#9.17 포인터 변수의 크기
 
+## 9.17 포인터 변수의 크기
+
+```c
 #include <stdio.h>
 
 int main() {
@@ -1483,8 +1532,8 @@ int main() {
     printf("%zd %zd %zd\n", sizeof(ptr_a), sizeof(ptr_b), sizeof(ptr_c));	 // pointer
     printf("%zd %zd %zd\n", sizeof(&a), sizeof(&b), sizeof(&c));			 // 주소를 직접 출력(주소 연산자)
     printf("%zd %zd %zd\n", sizeof(char*), sizeof(float*), sizeof(double*)); // 자료형을 직접 출력
-
 }
+```
 
 자료형 크기에 상관없이 주소의 크기는 동일하다.
 (x86에서는 4byte, x64에서는 8byte)
@@ -1492,6 +1541,7 @@ int main() {
 //
 데이터의 크기에 따라서 차지하는 양을 확인하기
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1512,14 +1562,16 @@ int main() {
     printf("%zd %zd %zd\n", sizeof(ptr_a), sizeof(ptr_b), sizeof(ptr_c));	 // pointer
     printf("%zd %zd %zd\n", sizeof(&a), sizeof(&b), sizeof(&c));			 // 주소를 직접 출력(주소 연산자)
     printf("%zd %zd %zd\n", sizeof(char*), sizeof(float*), sizeof(double*)); // 자료형을 직접 출력
-
 }
+```
 
 //
-#9.18 포인터형 매개변수
+
+## 9.18 포인터형 매개변수
 
 두개의 값을 'swap'하는 코드 만들어 보자
 
+```c
 #include <stdio.h>
 
 int main() {
@@ -1534,18 +1586,19 @@ int main() {
     printf("%d %d\n", a, b);
 
     return 0;
-
 }
+```
 
 //
 위의 swap을 함수로 만들어서 써보자
 
+```c
 #include <stdio.h>
 
 void swap(int a, int b) {
-int temp = a;
-a = b;
-b = temp;
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
 int main() {
@@ -1558,11 +1611,12 @@ int main() {
     printf("%d %d\n", a, b);
 
     return 0;
-
 }
+```
 
 해보면 swap이 전혀 안 된다.
 
+```c
 #include <stdio.h>
 
 void swap(int a, int b) {
@@ -1572,7 +1626,6 @@ void swap(int a, int b) {
     int temp = a;
     a = b;
     b = temp;
-
 }
 
 int main() {
@@ -1587,8 +1640,8 @@ int main() {
     printf("%d %d\n", a, b);
 
     return 0;
-
 }
+```
 
 확인해 보면 주소가 전혀 다르다.
 (애초에 이름만 같고 다른 변수이므로)
@@ -1596,6 +1649,7 @@ int main() {
 //
 swap 함수에 a의 주소와 b의 주소를 넣어서 해결해보자
 
+```c
 #include <stdio.h>
 
 void swap(int* u, int* v) {
@@ -1605,7 +1659,6 @@ void swap(int* u, int* v) {
     int temp = *u;
     *u = *v;
     *v = temp;
-
 }
 
 int main() {
@@ -1620,8 +1673,8 @@ int main() {
     printf("%d %d\n", a, b);
 
     return 0;
-
 }
+```
 
 이런 것을
 call by pointer
