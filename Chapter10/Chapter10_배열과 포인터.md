@@ -238,8 +238,8 @@ int main() {
 ```
 
 //
-#10.3 포인터의 산술 연산(Pointer Arithmetic)
-
+## 10.3 포인터의 산술 연산(Pointer Arithmetic)
+```c
 #include <stdio.h>
 
 int main() {
@@ -256,15 +256,14 @@ int main() {
     printf("%p %lld\n", ptr, (long long)ptr);
 
     return 0;
-
 }
-
+```
 각 자료형 원소들이 가지는 데이터 사이즈 알 수 있다. -도 가능
 
 //
 포인터에서 단항 연산은 막아두었다.
 (주소를 음수로 바꿀 이유가 없기 때문)
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -284,13 +283,12 @@ int main() {
     //ptr = +ptr; // Not working
 
     return 0;
-
 }
-
+```
 //
 포인터 주소끼리 더하는 것은 안 된다.(의미가 없어서)
 다만 빼기는 된다.(주소 간의 차이를 나타내므로 이용 가능)
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -319,12 +317,11 @@ int main() {
     printf("%p %p %d\n", ptr1, ptr2, i);
 
     return 0;
-
 }
-
+```
 //
 10진수로도 보자
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -353,12 +350,11 @@ int main() {
     printf("%lld %lld %d\n", (long long)ptr1, (long long)ptr2, i);
 
     return 0;
-
 }
-
+```
 //
-#10.4 포인터와 배열
-
+## 10.4 포인터와 배열
+```c
 #include <stdio.h>
 
 int main() {
@@ -385,11 +381,10 @@ int main() {
     printf("%d %d %d\n", *ptr + 1, *arr + 3, arr[3]);	// 가져온 값에 대해서 연산을 하는 것 주의!(의도에 맞는지 확인)
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -419,12 +414,11 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 //
-
-#10.5 2차원 배열과 메모리
+```c
+## 10.5 2차원 배열과 메모리
 
 #include <stdio.h>
 
@@ -478,13 +472,12 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 //
 
-#10.6 2차원 배열 연습문제
-
+## 10.6 2차원 배열 연습문제
+```c
 #include <stdio.h>
 
 #define MONTHS 12
@@ -504,11 +497,10 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ※ 내 코드
-
+```c
 #include <stdio.h>
 
 #define MONTHS 12
@@ -582,11 +574,10 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 ※ 교수님 코드
-
+```c
 #include <stdio.h>
 
 #define MONTHS 12
@@ -663,13 +654,12 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
 
-#10.7 배열을 함수에게 전달해주는 방법
-
+## 10.7 배열을 함수에게 전달해주는 방법
+```c
 #include <stdio.h>
 
 int main() {
@@ -690,12 +680,11 @@ int main() {
     printf("Avg = %f\n", avg);
 
     return 0;
-
 }
-
+```
 //
 avg2 만들기 위해 함수 만들자
-
+```c
 #include <stdio.h>
 
 double average(double arr1[5]) {
@@ -707,7 +696,6 @@ double average(double arr1[5]) {
     avg /= (double)5;
 
     return avg;
-
 }
 
 int main() {
@@ -723,12 +711,11 @@ int main() {
     printf("Avg = %f\n", average(arr2));
 
     return 0;
-
 }
-
+```
 //
 함수에 들어가는 배열의 사이즈 확인
-
+```c
 #include <stdio.h>
 
 double average(double arr1[5]) {
@@ -742,7 +729,6 @@ double average(double arr1[5]) {
     avg /= (double)5;
 
     return avg;
-
 }
 
 int main() {
@@ -760,12 +746,11 @@ int main() {
     printf("Avg = %f\n", average(arr2));
 
     return 0;
-
 }
-
+```
 //
 ⭐함수에서 배열을 받을 때는 포인터로 받는다!
-
+```c
 double average(double \*arr1) // (double arr1)해도 된다.
 {
 printf("Size = %zd in function average\n", sizeof(arr1));
@@ -779,11 +764,11 @@ printf("Size = %zd in function average\n", sizeof(arr1));
     return avg;
 
 }
-
+```
 //
 완벽하게 입력한 경우
 (함수에 매개변수 사용해서 일반화, 함수에 들어가는 배열에 index 안 씀)
-
+```c
 #include <stdio.h>
 
 double average(double data_array[], int n);
@@ -803,7 +788,6 @@ int main() {
     printf("Avg = %f\n", average(arr2, 3));
 
     return 0;
-
 }
 
 double average(double data_array[], int n) {
@@ -817,19 +801,20 @@ double average(double data_array[], int n) {
     avg /= (double)n;
 
     return avg;
-
 }
 
-/* 위 함수를 선언할 때 이렇게 4가지 경우로 선언할 수 있다.
-double average(double *arr, int n); // 보통 이렇게 포인터로 쓴다
-double average(double _, int n); // 보통 이렇게 하면 알아본다.(뒤에 변수 들어온거 보고 배열인거 알 수 있음)
-double average(double arr[], int n);
-double average(double [], int n);
-_/
+/*
+    위 함수를 선언할 때 이렇게 4가지 경우로 선언할 수 있다.
 
+    double average(double *arr, int n); // 보통 이렇게 포인터로 쓴다
+    double average(double _, int n); // 보통 이렇게 하면 알아본다.(뒤에 변수 들어온거 보고 배열인거 알 수 있음)
+    double average(double arr[], int n);
+    double average(double [], int n);
+*/
+```
 //
-#10.8 두 개의 포인터로 배열을 함수에게 전달해주는 방법
-
+## 10.8 두 개의 포인터로 배열을 함수에게 전달해주는 방법
+```c
 #include <stdio.h>
 
 double average(double*, double*);
@@ -841,7 +826,6 @@ int main() {
     printf("Avg = %f\n", average(arr1, arr1 + 5)); 	// 포인터 산술 연산
 
     return 0;
-
 }
 
 double average(double* start, double* end) {
@@ -855,13 +839,12 @@ double average(double* start, double* end) {
     avg /= (double)count;
 
     return avg;
-
 }
-
+```
 //
 while문에서 개수 세는게 부담스러울 수 있으니
 함수 안에서 포인터끼리 빼서 구한다.
-
+```c
 #include <stdio.h>
 
 double average(double*, double*);
@@ -873,7 +856,6 @@ int main() {
     printf("Avg = %f\n", average(arr1, arr1 + 5));
 
     return 0;
-
 }
 
 double average(double* start, double* end) {
@@ -887,12 +869,11 @@ double average(double* start, double* end) {
     avg /= (double)count;
     printf("%d\n", count);
     return avg;
-
 }
-
+```
 //
-#10.9 포인터 연산 총정리
-
+## 10.9 포인터 연산 총정리
+```c
 #include <stdio.h>
 
 int main() {
@@ -950,13 +931,12 @@ int main() {
     	printf("Different\n");
 
     return 0;
-
 }
-
+```
 //
 
-#10.10 const와 배열과 포인터
-
+## 10.10 const와 배열과 포인터
+```c
 #include <stdio.h>
 
 int main() {
@@ -981,11 +961,10 @@ int main() {
     pd++; // allowed
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1012,11 +991,10 @@ int main() {
     printf("%f %f\n", pd[2], arr2[2]);
 
     return 0;
-
 }
-
+```
 // pd++;도 막기위해서는 뭘 해야할까
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1043,9 +1021,8 @@ int main() {
     printf("%f %f\n", pd[2], arr2[2]);
 
     return 0;
-
 }
-
+```
 포인터의 변수명 앞에 const를 더 붙인다.
 
 //
@@ -1059,78 +1036,75 @@ double\* const pd = arr2;
 const double\* const pd = arr2; 쓰면 둘 다 못 바꿈
 
 //
-#10.11 배열 매개변수와 const
+## 10.11 배열 매개변수와 const
 
 함수를 배열로써 매개변수화 하면 그 배열을 '포인터'로 받는다.
-
+```c
 #include <stdio.h>
 
 void print_array(int arr[], int n) {
-for (int i = 0; i < n; ++i)
-printf("%d ", arr[i]);
-printf("\n");
+    for (int i = 0; i < n; ++i)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
 
 void add_value(int arr[], int n, int val) // 함수를 배열로써 매개변수화 하면 그 배열을 '포인터'로 받는다.
 {
-int i;
-for (i = 0; i < n; i++)
-arr[i] += val;
+    int i;
+    for (i = 0; i < n; i++)
+    arr[i] += val;
 }
 
 int sum(int ar[], int n) {
-int i;
-int total = 0;
+    int i;
+    int total = 0;
 
     for (i = 0; i < n; i++)
     	total += ar[i] ++;	// wrong implementation
 
     return total;
-
 }
 
 int main() {
-int arr[] = { 1, 2, 3, 4, 5 };
-int n = sizeof(arr) / sizeof(arr[0]); // 원소가 몇 개 인지
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]); // 원소가 몇 개 인지
 
     print_array(arr, 5);
     add_value(arr, 5, 100); // 함수를 배열로써 매개변수화 하면 그 배열을 '포인터'로 받는다.
     print_array(arr, 5);
 
     return 0;
-
 }
-
+```
 //
 sum만 구하는게 목표였는데 배열의 값이 변했다.(의도하지 않음)
-
+```c
 void print_array(int arr[], int n) {
-for (int i = 0; i < n; ++i)
-printf("%d ", arr[i]);
-printf("\n");
+    for (int i = 0; i < n; ++i)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
 
 void add_value(int arr[], int n, int val) // 함수를 배열로써 매개변수화 하면 그 배열을 '포인터'로 받는다.
 {
-int i;
-for (i = 0; i < n; i++)
-arr[i] += val;
+    int i;
+    for (i = 0; i < n; i++)
+    arr[i] += val;
 }
 
 int sum(int ar[], int n) {
-int i;
-int total = 0;
+    int i;
+    int total = 0;
 
     for (i = 0; i < n; i++)
     	total += ar[i] ++;	// wrong implementation
 
     return total;
-
 }
 
 int main() {
-int arr[] = { 1, 2, 3, 4, 5 };
-int n = sizeof(arr) / sizeof(arr[0]); // 원소가 몇 개 인지
+    int arr[] = { 1, 2, 3, 4, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]); // 원소가 몇 개 인지
 
     print_array(arr, 5);
     add_value(arr, 5, 100); // 함수를 배열로써 매개변수화 하면 그 배열을 '포인터'로 받는다.
@@ -1142,16 +1116,15 @@ int n = sizeof(arr) / sizeof(arr[0]); // 원소가 몇 개 인지
     print_array(arr, 5);
 
     return 0;
-
 }
-
+```
 ++한 부분을 지우면 해결되겠지만 프로그래머들은 이러한 실수를 항상 할 수도 있다고 가정을 해야한다.
 //
 그래서 예비책으로 함수에 입력되는 배열에 const를 붙여준다.
-
+```c
 int sum(const int ar[], const int n) {
-int i;
-int total = 0;
+    int i;
+    int total = 0;
 
     for (i = 0; i < n; i++)
     	total += ar[i] ++;	// wrong implementation
@@ -1159,41 +1132,40 @@ int total = 0;
     return total;
 
 }
-
+```
 const를 썼기 때문에 compile이 안 된다. > 실수를 찾을 수 있다.
 //
 sum 함수를 고쳐서 배열의 값이 변하지 않게 수정,
 const를 붙일 수 있는 곳에 다 붙이기
-
+```c
 #include <stdio.h>
 
 void print_array(const int arr[], const int n) {
-for (int i = 0; i < n; ++i)
-printf("%d ", arr[i]);
-printf("\n");
+    for (int i = 0; i < n; ++i)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
 
 void add_value(int arr[], const int n, const int val) // 배열의 값을 더하는 것이 목적이기 때문에 배열에 const를 붙이면 안 된다.
 {
-int i;
-for (i = 0; i < n; i++)
-arr[i] += val;
+    int i;
+    for (i = 0; i < n; i++)
+    arr[i] += val;
 }
 
 int sum(const int ar[], const int n) {
-int i;
-int total = 0;
+    int i;
+    int total = 0;
 
     for (i = 0; i < n; i++)
     	total += ar[i];
 
     return total;
-
 }
 
 int main() {
-int arr[] = { 1, 2, 3, 4, 5 }; // add_value 함수 때문에 const를 붙이면 안 된다.
-const int n = sizeof(arr) / sizeof(arr[0]);
+    int arr[] = { 1, 2, 3, 4, 5 }; // add_value 함수 때문에 const를 붙이면 안 된다.
+    const int n = sizeof(arr) / sizeof(arr[0]);
 
     print_array(arr, 5);
     add_value(arr, 5, 100);
@@ -1205,20 +1177,19 @@ const int n = sizeof(arr) / sizeof(arr[0]);
     print_array(arr, 5);
 
     return 0;
-
 }
-
+```
 //
 
-#10.12 포인터에 대한 포인터(2중 포인터)의 작동 원리
+## 10.12 포인터에 대한 포인터(2중 포인터)의 작동 원리
 
 //
-#10.13 포인터의 배열과 2차원 배열
-
+## 10.13 포인터의 배열과 2차원 배열
+```c
 #include <stdio.h>
 
 int main() {
-/_ Two of 1D arrays _/
+    /* Two of 1D arrays */
 
     int arr0[3] = { 1, 2, 3 };
     int arr1[3] = { 4, 5, 6 };
@@ -1233,15 +1204,14 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
-/_ Two of 1D arrays _/
+    /* Two of 1D arrays */
 
     int arr0[3] = { 1, 2, 3 };
     int arr1[3] = { 4, 5, 6 };
@@ -1256,15 +1226,14 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
-/_ Two of 1D arrays _/
+    /* Two of 1D arrays */
 
     int arr0[3] = { 1, 2, 3 };
     int arr1[3] = { 4, 5, 6 };
@@ -1279,16 +1248,15 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
 위와 같은 예제인데 형태만 바꿈
-
+```c
 #include <stdio.h>
 
 int main() {
-/_ 2D arrays are arrays of 1D arrays _/
+    /* 2D arrays are arrays of 1D arrays */
 
     int arr[2][3] = { {1, 2, 3}, {4, 5, 6} };
 
@@ -1304,15 +1272,14 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
-/_ arrays of pointers works like a 2D array _/
+    /* arrays of pointers works like a 2D array */
 
     int arr[2][3] = { {1, 2, 3}, {4, 5, 6} };
 
@@ -1330,11 +1297,10 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1371,11 +1337,10 @@ int main() {
     printf("%p\n", &arr[0][0]);
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1400,13 +1365,12 @@ int main() {
 
 
     return 0;
-
 }
-
+```
 //
 
-#10.14 2차원 배열과 포인터
-
+## 10.14 2차원 배열과 포인터
+```c
 #include <stdio.h>
 
 int main() {
@@ -1447,11 +1411,10 @@ int main() {
     printf("\n");
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1495,13 +1458,12 @@ int main() {
     printf("%f\n", *(*(pa + 1) + 3));
 
     return 0;
-
 }
-
+```
 //
 
-#10.15 포인터의 호환성(Compatibility)
-
+## 10.15 포인터의 호환성(Compatibility)
+```c
 #include <stdio.h>
 
 int main() {
@@ -1539,12 +1501,11 @@ int main() {
     // - p2: pointer to pointer to int
     // - ar2: a pointer to array-of-two-ints
 
-
     return 0;
-
 }
-
+```
 //
+```c
 #include <stdio.h>
 
 int main() {
@@ -1567,10 +1528,10 @@ int main() {
     pp2 = &p1;	// 위에 const int** const pp2 = &ap1;로 바꾸면 막힌다.
 
     return 0;
-
 }
-
+```
 //
+```c
 #include <stdio.h>
 
 int main() {
@@ -1590,11 +1551,10 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 //
-
+```c
 #include <stdio.h>
 
 int main() {
@@ -1611,12 +1571,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 //
-#10.16 다차원 배열(Multidimensional Arrays)을 함수에게 전달해주는 방법
-
+## 10.16 다차원 배열(Multidimensional Arrays)을 함수에게 전달해주는 방법
+```c
 #include <stdio.h>
 
 #define ROWS 3
@@ -1646,7 +1605,6 @@ int main() {
     printf("Sum of all elements = %d\n", sum2d_3(&data[0][0], ROWS, COLS));
 
     return 0;
-
 }
 
 int sum2d_1(int ar[ROWS][cols]) {
@@ -1673,19 +1631,18 @@ tot += *(ar + c + col _ r); // ar[c + col _ r]
 return tot;
 }
 
-/\*
-In higher dimensions,
-you may omit the value in the left-most bracket
+/*
+    In higher dimensions,
+    you may omit the value in the left-most bracket
 
     int my_function(int ar[][3][5][8], int rows);	 // 고차원 배열인 경우, 가장 왼쪽 차원은 숫자를 넣으나 마나 이다.(몇 개인지 따로 변수를 넣어주는 것이 일반적)
     int my_function(int (*ar)[][3][5][8], int rows);
-
-\*/
-
+*/
+```
 //
 
-#10.17 변수로 길이를 정할 수 있는 배열(Variable-Length Arrays (VLAs))
-
+## 10.17 변수로 길이를 정할 수 있는 배열(Variable-Length Arrays (VLAs))
+```c
 #include <stdio.h>
 
 int main() {
@@ -1694,13 +1651,12 @@ int main() {
     float my_arr[n];	// 가변길이배열은 VS에서 지원을 하지 않는다.
 
     return 0;
-
 }
-
+```
 // 그러니 온라인 compiler로 실습하자(repl.it 같은 것)
 (online copiler gcc 검색)
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 
@@ -1734,23 +1690,22 @@ int main() {
     printf("%d\n", sum2d_4(ROWS, COLS, data));	// 숫자를 넣어도 되고 변수를 넣어도 된다.
 
     return 0;
-
 }
 
 int sum2d_4(int row, int col, int ar[row][col]) // 이렇게 하면 매크로를 덜 사용할 수 있어서 간결하다.(함수의 기능이 매개변수 만으로도 설명이 가능)
 {
-//printf("%zd\n", sizeof(ar));
-//printf("%zd\n", sizeof(ar[0]));
-int r, c, tot = 0;
-for (r = 0; r < row; r++)
-for (c = 0; c < col; c++)
-tot += ar[r][c];
-return tot;
+    //printf("%zd\n", sizeof(ar));
+    //printf("%zd\n", sizeof(ar[0]));
+    int r, c, tot = 0;
+    for (r = 0; r < row; r++)
+    for (c = 0; c < col; c++)
+    tot += ar[r][c];
+    return tot;
 }
-
+```
 //
-#10.18 복합 리터럴(Compound Literals)과 배열
-
+## 10.18 복합 리터럴(Compound Literals)과 배열
+```c
 #include <stdio.h>
 
 #define COLS 4
@@ -1792,14 +1747,13 @@ int main() {
     // 포인터에 복합 리터럴을 바로 대입할 수 있다.
 
     return 0;
-
 }
 
 int sum_1d(int arr[], int n) {
-int total = 0;
-for (int i = 0; i < n; ++i)
-total += arr[i];
-return total;
+    int total = 0;
+    for (int i = 0; i < n; ++i)
+    total += arr[i];
+    return total;
 }
 
 int sum_2d(int arr[][cols], int rows) {
@@ -1809,7 +1763,6 @@ int sum_2d(int arr[][cols], int rows) {
     	for (int c = 0; c < COLS; c++)
     		total += arr[r][c];
     return total;
-
 }
-
+```
 //
