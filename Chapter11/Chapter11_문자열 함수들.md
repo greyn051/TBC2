@@ -212,8 +212,8 @@ int main() {
 
 ---
 
-#11.3 문자열의 배열
-
+## 11.3 문자열의 배열
+```c
 #include <stdio.h>
 
 int main() {
@@ -270,14 +270,13 @@ int main() {
     // Not a good idea to take advantage of this property
 
     return 0;
-
 }
-
+```
 ---
 
-#11.4 문자열을 입력 받는 다양한 방법들
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.4 문자열을 입력 받는 다양한 방법들
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -292,12 +291,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -328,12 +326,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -348,14 +345,14 @@ int main() {
     //TODO: replace '\n' with '\0'
 
     return 0;
-
 }
-
+```
 // 디버그하면 words에 \n이 같이 입력되는 걸 확인할 수 있는데 \n을 \0으로 바꿔보자
 TODO: replace '\n' with '\0'
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -375,11 +372,11 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 ※ 교수님 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -399,12 +396,11 @@ int main() {
     	words[i] = '\0';
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -427,12 +423,11 @@ int main() {
     fputs("END", stdout);
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -453,12 +448,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -475,15 +469,14 @@ int main() {
     fputs(small_array, stdout);
 
     return 0;
-
 }
-
+```
 ^z 입력시 null charcater 출력됨
 (EOF: End of File)
 
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -503,12 +496,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -527,12 +519,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define STRLEN 81
@@ -546,13 +537,12 @@ int main() {
     puts(custom_string_input(word, 11));
 
     return 0;
-
 }
 
 // 문자열 입력 함수 만들기
 char* custom_string_input(char* st, int n) {
-char\* ret_ptr;
-int i = 0;
+    char* ret_ptr;
+    int i = 0;
 
     ret_ptr = fgets(st, n, stdin);
     if (ret_ptr) {
@@ -565,14 +555,13 @@ int i = 0;
     			continue;
     }
     return ret_ptr;
-
 }
-
+```
 ---
 
-#11.5 문자열을 출력하는 다양한 방법들
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.5 문자열을 출력하는 다양한 방법들
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define TEST "A string from #define."
@@ -595,12 +584,11 @@ int main() {
     puts(ptr + 3);
 
     return 0;
-
 }
-
+``
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define TEST "A string from #define."
@@ -619,12 +607,11 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define TEST "A string from #define."
@@ -644,12 +631,11 @@ int main() {
     	fputs(line, stdout);
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -672,20 +658,19 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 #define TEST "A string from #define."
 
-/_
-puts() which doesn't add a new line at the end
-Use pointer increment operator and putchar() ⭐ 다시 혼자 해보기
-_/
+/*
+    puts() which doesn't add a new line at the end
+    Use pointer increment operator and putchar() ⭐ 다시 혼자 해보기
+*/
 void custom_put(const char* str); // Only two lines
 int custom_put2(const char* str); // Add \n, return # of characters(몇 글자인지 return)
 
@@ -703,15 +688,14 @@ int main() {
     return 0;
 
 }
-⭐
+// ⭐
 void custom_put(const char\* str) {
 
     while (*str != '\0') // while(*str) (이렇게 줄여서 쓸 수도 있다.)
     	putchar(*str++);
-
 }
 // Only two lines
-⭐
+// ⭐
 int custom_put2(const char\* str) {
 
     int count = 0;
@@ -722,15 +706,14 @@ int custom_put2(const char\* str) {
     putchar('\n');
 
     return count;
-
 }
 // Add \n, return # of characters
-
+```
 ---
 
-#11.6 다양한 문자열 함수들
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.6 다양한 문자열 함수들
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 
@@ -752,13 +735,13 @@ int main() {
     //TODO: implement fit_str() function
 
     return 0;
-
 }
-
+```
 ---
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 
@@ -780,7 +763,6 @@ int main() {
     //TODO: implement fit_str() function
 
     return 0;
-
 }
 
 void fit_str(char\* ptr, unsigned int n) {
@@ -792,13 +774,13 @@ void fit_str(char\* ptr, unsigned int n) {
     	https://www.inflearn.com/questions/142917
     	https://www.inflearn.com/questions/80454
     */
-
 }
-
+```
 ---
 
 ※ 교수님 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 
@@ -820,18 +802,16 @@ int main() {
     //TODO: implement fit_str() function
 
     return 0;
-
 }
 
 void fit_str(char\* str, unsigned int size) {
 
     if (strlen(str) > size)	// 문자열 사용 시 크기 확인하는 것이 중요
     	str[size] = '\0';
-
 }
-
+```
 ---
-
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -853,11 +833,10 @@ int main() {
     //strcat()와 동일하게 작동하는 함수 구현해보자 (Implement strcat() function in C 구글링하면 정답 알 수 있음)
 
     return 0;
-
 }
-
+```
 ---
-
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -884,11 +863,10 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
-
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -915,11 +893,10 @@ int main() {
     puts(dest);
 
     return 0;
-
 }
-
+```
 ---
-
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -937,11 +914,10 @@ int main() {
     // capture00000.png, capture00001.png, ...
 
     return 0;
-
 }
-
+```
 ---
-
+```c
 #include <stdio.h>
 #include <string.h>
 
@@ -962,21 +938,20 @@ int main() {
     printf("%s\n", strstr("Hello, World", "Wor"));
 
     return 0;
-
 }
-
+```
 ---
 
-#11.7 선택 정렬(Selection Sort) 문제 풀이
+## 11.7 선택 정렬(Selection Sort) 문제 풀이
 
-아래에 설명 된 정렬 알고리즘을 코드로 구현해보자
-
-#define \_CRT_SECURE_NO_WARNINGS
+아래에 설명 된 정렬 알고리즘을 코드로 구현해보자⭐️
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/\*
-Selection Sort Algorithm
-https://www.geeksforgeeks.org/selection-sort/
+\*
+    Selection Sort Algorithm
+    https://www.geeksforgeeks.org/selection-sort/
 
     Youtube search "Selection Sort", "CS50"
 
@@ -1003,11 +978,11 @@ https://www.geeksforgeeks.org/selection-sort/
     11 12 22 25 64	(min_idx = 3)
     ...
 
-\*/
+*/
 
-/_
-알고리즘 이해할 때 추가자료 보는 게 좋다.
-_/
+/*
+    알고리즘 이해할 때 추가자료 보는 게 좋다.
+*/
 
 void swap(int* xp, int* yp); //
 void printArray(int arr[], int size); // 출력
@@ -1023,26 +998,25 @@ int main() {
     printArray(arr, n);
 
     return 0;
-
 }
 
 // 원활한 진행을 위해 함수들의 일부를 보여줌
 
 void printArray(int arr[], int size) {
-int i;
-for (i = 0; i < size; i++)
-printf("%d ", arr[i]);
-printf("\n");
+    int i;
+    for (i = 0; i < size; i++)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
 
 void swap(int* xp, int* yp) {
-int temp = *xp;
-*xp = *yp;
-*yp = temp;
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
 }
 
 void selectionSort(int arr[], int n) {
-int i, j, min_idx;
+    int i, j, min_idx;
 
     // One by one move boundary of unsorted subarray
     for (i = 0; i < n - 1; i++) // Note n - 1
@@ -1057,13 +1031,13 @@ int i, j, min_idx;
     	// Swap the found minimum element with the first element
     	//TODO: fill blank(s)
     }
-
 }
-
+```
 ---
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 void swap(int* xp, int* yp); //
@@ -1084,20 +1058,20 @@ int main() {
 }
 
 void printArray(int arr[], int size) {
-int i;
-for (i = 0; i < size; i++)
-printf("%d ", arr[i]);
-printf("\n");
+    int i;
+    for (i = 0; i < size; i++)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
 
 void swap(int* xp, int* yp) {
-int temp = *xp;
-*xp = *yp;
-*yp = temp;
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
 }
 
 void selectionSort(int arr[], int n) {
-int i, j, min_idx;
+    int i, j, min_idx;
 
     // One by one move boundary of unsorted subarray
     for (i = 0; i < n - 1; i++) // Note n - 1
@@ -1112,18 +1086,18 @@ int i, j, min_idx;
     	// Swap the found minimum element with the first element
     	swap(&arr[i], &arr[min_idx]);
     }
-
 }
 
-/_
-알고리즘 구현하기 전에 어려울줄 알고 매우 쫄았었는데
-막상 풀어보니 매우 간단하다.
-물론 이번에 거의 다 힌트였지만 다음부터 쫄지말고 실행하자.
-_/
+/*
+    알고리즘 구현하기 전에 어려울줄 알고 매우 쫄았었는데
+    막상 풀어보니 매우 간단하다.
+    물론 이번에 거의 다 힌트였지만 다음부터 쫄지말고 실행하자.
+*/
 
 ※ 교수님 코드(거의 동일)
+```c
 void selectionSort(int arr[], int n) {
-int i, j, min_idx;
+    int i, j, min_idx;
 
     // One by one move boundary of unsorted subarray
     for (i = 0; i < n - 1; i++) // Note n - 1
@@ -1138,14 +1112,13 @@ int i, j, min_idx;
     	// Swap the found minimum element with the first element
     	swap(&arr[min_idx], &arr[i]);
     }
-
 }
-
+```
 ---
 
-#11.8 문자열의 포인터를 정렬하기
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.8 문자열의 포인터를 정렬하기
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h> // strcmp() // 문자열 간의 순서를 정할 수 있다.
 
@@ -1165,21 +1138,21 @@ int main() {
     printStringArray(arr, n);
 
     return 0;
-
 }
-/_
-문자열의 '포인터'를 정렬해야한다.
-문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
-값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
-(앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
-_/
-
+/*
+    문자열의 '포인터'를 정렬해야한다.
+    문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
+    값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
+    (앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
+*/
+```
 문자열 정렬 해보자
 
 ---
 
 ※ 내 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h> // strcmp() // 문자열 간의 순서를 정할 수 있다.
 
@@ -1201,37 +1174,37 @@ int main() {
     return 0;
 
 }
-/_
-문자열의 '포인터'를 정렬해야한다.
-문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
-값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
-(앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
-_/
+/*
+    문자열의 '포인터'를 정렬해야한다.
+    문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
+    값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
+    (앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
+*/
 
 void printStringArray(char* arr[], int size) {
-int i;
-for (i = 0; i < size; i++)
-printf("%s\n", arr[i]);
-/*
-printf("%s\n", *arr[i]); // %s 인가 %c인가? %s는 왜 warning이 뜨는가?
-printf("%s\n", arr[i]); // *을 제거하니 제대로 출력된다.(포인터 개념 부족)⭐
-\*/
-printf("\n");
+    int i;
+    for (i = 0; i < size; i++)
+    printf("%s\n", arr[i]);
+    /*
+        printf("%s\n", *arr[i]); // %s 인가 %c인가? %s는 왜 warning이 뜨는가?
+        printf("%s\n", arr[i]); // *을 제거하니 제대로 출력된다.(포인터 개념 부족)⭐
+    */
+    printf("\n");
 }
 
 void swap(char** xp, char** yp) {
-char *temp = *xp; // 여기 char로 두면 안 되나? > 된다.
-*xp = *yp;
-_yp = temp;
-/_
-char temp를 char _temp로 바꾸니까 된다.
-https://stackoverflow.com/questions/3816233/swapping-two-string-pointers
-이중포인터 개념 복습하자⭐
-_/
+    char *temp = *xp; // 여기 char로 두면 안 되나? > 된다.
+    *xp = *yp;
+    _yp = temp;
+    /*
+        char temp를 char _temp로 바꾸니까 된다.
+        https://stackoverflow.com/questions/3816233/swapping-two-string-pointers
+        이중포인터 개념 복습하자⭐
+    */
 }
 
 void selectionSort(char\* arr[], int n) {
-int i, j, min_idx;
+    int i, j, min_idx;
 
     for (i = 0; i < n - 1; i++)
     {
@@ -1244,11 +1217,11 @@ int i, j, min_idx;
     	}
     	swap(&arr[min_idx], &arr[i]);
     }
-
 }
-
+```
 ※ 교수님 코드
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h> // strcmp() // 문자열 간의 순서를 정할 수 있다.
 
@@ -1270,28 +1243,28 @@ int main() {
     return 0;
 
 }
-/_
-문자열의 '포인터'를 정렬해야한다.
-문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
-값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
-(앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
-_/
+/*
+    문자열의 '포인터'를 정렬해야한다.
+    문자열 자체를 정렬하면 문자열들을 정렬하면서 계속 복사를 해야한다.
+    값 자체를 복사하면 연산량이 많아지므로 연산량을 조금이라도 줄이기 위해
+    (앞에 선택정렬에서 index를 이용했던 것 처럼 이번에는 포인터를 이용한다.)
+*/
 
 void printStringArray(char\* arr[], int size) {
-int i;
-for (i = 0; i < size; i++)
-puts(arr[i]);
-printf("\n");
+    int i;
+    for (i = 0; i < size; i++)
+    puts(arr[i]);
+    printf("\n");
 }
 
 void swap(char** xp, char** yp) {
-char* temp = *xp;
-*xp = *yp;
-\*yp = temp;
+    char* temp = *xp;
+    *xp = *yp;
+    *yp = temp;
 }
 
 void selectionSort(char\* arr[], int n) {
-int i, j, min_idx;
+    int i, j, min_idx;
 
     // One by one move boundary of unsorted subarray
     for (i = 0; i < n - 1; i++)
@@ -1312,12 +1285,12 @@ int i, j, min_idx;
     }
 
 }
-
+```
 ---
 
-#11.9 문자 함수(ctype.h)를 문자열에 사용하기
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.9 문자 함수(ctype.h)를 문자열에 사용하기
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h> // toupper(), ispunct(), ...
@@ -1345,22 +1318,22 @@ int main() {
     printf("%d\n", PunctCount(line));
 
     return 0;
-
 }
 
 void ToUpper(char* str) // 문자열을 받기 위해서 문자의 포인터를 받음
-{ /*
-c코드를 볼 때, char(문자) type에 대한 포인터가 parameter로 사용되고 있다면
-대부분의 경우 문자에 대한 포인터라긴 보다 "문자열"을 받기 위해 사용되고 있다고 보면 된다.⭐
-*/
-while (*str) {
-*str = toupper(*str);
-/* 코드를 좀 더 자세하게 만들고 싶다면(소문자인지 확인하고 대문자로 바꾸기)(퍼포먼스 아주 중요하다면)
-if (islower(*str))
-* str = toupper(*str);
-예전에는 이렇게 했지만 이제는 toupper()함수 안에 이런 기능이 있다.\*/
-str++;
-}
+{
+    /*
+    c코드를 볼 때, char(문자) type에 대한 포인터가 parameter로 사용되고 있다면
+    대부분의 경우 문자에 대한 포인터라긴 보다 "문자열"을 받기 위해 사용되고 있다고 보면 된다.⭐
+    */
+    while (*str) {
+        *str = toupper(*str);
+        /* 코드를 좀 더 자세하게 만들고 싶다면(소문자인지 확인하고 대문자로 바꾸기)(퍼포먼스 아주 중요하다면)
+        if (islower(*str))
+        * str = toupper(*str);
+        예전에는 이렇게 했지만 이제는 toupper()함수 안에 이런 기능이 있다.*/
+        str++;
+    }
 }
 
 int PunctCount(const char* str) {
@@ -1372,22 +1345,21 @@ str++;
 }
 
     return ct;
-
 }
-
+```
 ---
 
-#11.10 명령줄 인수(Command-Line Arguments)
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.10 명령줄 인수(Command-Line Arguments)
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main(int argc, char _ argv[]) // char pointer array의 용도는 문자열의 배열
-/_
-arguments에 어떻게 넣을까?
-프로그램을 실행할 때 프로그래머나 사용자가 넣을 수 있다.
-command prompt에 입력
-\*/
+/*
+    arguments에 어떻게 넣을까?
+    프로그램을 실행할 때 프로그래머나 사용자가 넣을 수 있다.
+    command prompt에 입력
+*/
 {
 
     int count;
@@ -1399,9 +1371,8 @@ command prompt에 입력
     printf("\n");
 
     return 0;
-
 }
-
+```
 ---
 
 command line에서 실행한 내용
@@ -1429,19 +1400,19 @@ D:\dev\repository\C\Chapter_3\Chapter_3>
 
 ---
 
-#11.11 문자열을 숫자로 바꾸는 방법들
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 11.11 문자열을 숫자로 바꾸는 방법들
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char _ argv[])
 {
-/_
-string to integer, double, long
-atoi(), atof(), atol()
-문자열을 숫자로 바꾸는 함수들(stdlib.h 안에 정의가 되어 있다.)
-\*/
+    /*
+        string to integer, double, long
+        atoi(), atof(), atol()
+        문자열을 숫자로 바꾸는 함수들(stdlib.h 안에 정의가 되어 있다.)
+    */
 
     if (argc < 3)
     	printf("Wrong Usage of %s\n", argv[0]);
@@ -1456,9 +1427,8 @@ atoi(), atof(), atol()
     }
 
     return 0;
-
 }
-
+```
 In command line
 D:\dev\repository\C\Chapter_3\Chapter_3>D:\dev\repository\C\Chapter_3\Chapter_3\Debug\Lecture_3_6.exe 3 hello
 hello
@@ -1466,18 +1436,18 @@ hello
 hello
 
 ---
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char _ argv[])
 {
-/_
-string to integer, double, long
-atoi(), atof(), atol()
-문자열을 숫자로 바꾸는 함수들(stdlib.h 안에 정의가 되어 있다.)
-\*/
+    /*
+        string to integer, double, long
+        atoi(), atof(), atol()
+        문자열을 숫자로 바꾸는 함수들(stdlib.h 안에 정의가 되어 있다.)
+    */
 
     if (argc < 3)
     	printf("Wrong Usage of %s\n", argv[0]);
@@ -1488,9 +1458,8 @@ atoi(), atof(), atol()
     }
 
     return 0;
-
 }
-
+```
 In command line
 D:\dev\repository\C\Chapter_3\Chapter_3>D:\dev\repository\C\Chapter_3\Chapter_3\Debug\Lecture_3_6.exe 10 21
 Sum = 31
@@ -1498,16 +1467,16 @@ Sum = 31
 ---
 
 좀 더 일반적인 경우(8진수, 16진수)
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char _ argv[])
 {
-/_
-string to long, unsigned long, double
-strtol(), strtoul(), strtod()
+    /*
+        string to long, unsigned long, double
+        strtol(), strtoul(), strtod()
 
     	strtod() converts base 10 only
 
@@ -1535,23 +1504,22 @@ strtol(), strtoul(), strtod()
     printf("%s %ld %s %d\n", str2, l, end, (int)* end);
 
     return 0;
-
 }
-
+```
 ---
 
 숫자에서 문자로
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, char _ argv[])
 {
-/_
-Numbers to strings
-Use sprintf() instead of itoa(), ftoa()
-숫자를 문자로 바꾸는 함수
+    /*
+        Numbers to strings
+        Use sprintf() instead of itoa(), ftoa()
+        숫자를 문자로 바꾸는 함수
 
     	itoa(), ftoa()는 표준이 아니기 때문에 사용을 권장하지 않는다.
     */
@@ -1567,7 +1535,6 @@ Use sprintf() instead of itoa(), ftoa()
     puts(temp);
 
     return 0;
-
 }
-
+```
 ---
