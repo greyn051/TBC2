@@ -4,46 +4,49 @@
 
 ### 프로그램이 시작될 때
 
-    #include <stdio.h>
+```c
+#include <stdio.h>
 
-    void func() {
-    	int i = 123;
-    	printf("%lld\n", (long long)&i);
-    }
+void func() {
+    int i = 123;
+    printf("%lld\n", (long long)&i);
+}
 
-    int main() {
-    	const char* message = "Banana";
-    	printf("Apple and %s", message);
-    	printf("\n");
+int main() {
+    const char* message = "Banana";
+    printf("Apple and %s", message);
+    printf("\n");
 
-    	void (*f_ptr)() = func;	// address of a function
+    void (*f_ptr)() = func;	// address of a function
 
-    	printf("%lld\n", (long long)&message);
-    	printf("%lld\n", (long long)&f_ptr);
-    	printf("%lld\n", (long long)message);
-    	printf("%lld\n", (long long)f_ptr);
-    	printf("%lld\n", (long long)main);
+    printf("%lld\n", (long long)&message);
+    printf("%lld\n", (long long)&f_ptr);
+    printf("%lld\n", (long long)message);
+    printf("%lld\n", (long long)f_ptr);
+    printf("%lld\n", (long long)main);
 
-    	func();
+    func();
 
-    	return 0;
-    }
+    return 0;
+}
+```
 
 ---
 
 ### 프로그램 전체에서 계속 사용되는 변수들
 
+```c
 #include <stdio.h>
 
 int g_i = 123; // global variable
 int g_j; // global variable
 
 void func1() {
-g_i++; // user g_i
+    g_i++; // user g_i
 }
 
 void func2() {
-g_i += 2; // uses g_i
+    g_i += 2; // uses g_i
 }
 
 int main() {
@@ -56,13 +59,12 @@ int main() {
     printf("%d", g_i);// uses g_i
 
     return 0;
-
 }
-
+```
 ---
 
 ### 프로그램의 일부에서 큰 메모리가 필요한 경우
-
+```c
 #include <stdio.h>
 
 #define MAX 1000
@@ -72,21 +74,20 @@ int g_arr[MAX];
 
 int main() {
 
-/_
-Use g_arr
-...
-Do NOT use g_arr
-...
-Use g_arr
-...
-_/
+/*
+    Use g_arr
+    ...
+    Do NOT use g_arr
+    ...
+    Use g_arr
+    ...
+*/
 
     return 0;
-
 }
 
 ---
-
+```c
 #include <stdio.h>
 
 #define MAX 1000
@@ -96,22 +97,22 @@ int main() {
     // 2. Use local in main()
     int l_arr[MAX] = { 0, };
 
-/_
-Use l_arr
-...
-Do NOT use l_arr
-...
-Use l_arr
-...
-_/
+/*
+    Use l_arr
+    ...
+    Do NOT use l_arr
+    ...
+    Use l_arr
+    ...
+*/
 
     return 0;
-
 }
-
+```
 ---
 
 보다 효율적인 구조
+```c
 #include <stdio.h>
 
 #define MAX 1000
@@ -125,21 +126,20 @@ void func() {
 
 int main() {
 
-/_
-Call func()
-...
-Call func()
-...
-_/
+/*
+    Call func()
+    ...
+    Call func()
+    ...
+*/
 
     return 0;
-
 }
-
+```
 ---
 
 필요한 메모리의 크기를 미리 알 수 없을 경우
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -156,14 +156,13 @@ int main() {
     free(arr);
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.2 객체(Object)와 식별자(Identifier), L-value와 R-value
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main() {
@@ -231,32 +230,32 @@ int main() {
     */
 
     return 0;
-
 }
+```
 
 ---
 
 ## 12.3 변수의 영역(Scope)과 연결 상태(Linkage), 객체의 지속 기간(Duration)
 
 ### FileScope
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Variable scopes (visibility) - block, function, function prototype, file.
-_/
+/*
+    Variable scopes (visibility) - block, function, function prototype, file.
+*/
 
 int g_i = 123; // global variable
 int g_j; // global variable
 // file 영역은 모든 함수 바깥에 선언되면 됨(file scope를 갖는다)
 
 void func1() {
-g_i++; // uses g_i
+    g_i++; // uses g_i
 }
 
 void func2() {
-g_i += 2; // uses g_i
+    g_i += 2; // uses g_i
 
     //local = 456;	// Error
 
@@ -275,19 +274,18 @@ int main() {
     printf("%d\n", local);
 
     return 0;
-
 }
-
+```
 ---
 
 ### Scope
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Variable scopes (visibility) - block, function, function prototype, file.
-_/
+/*
+    Variable scopes (visibility) - block, function, function prototype, file.
+*/
 
 void f1(int hello, double world); // to the end of the prototype declaration
 //void vla-param(int n, int m, double ar[n][m]); // gcc only
@@ -312,7 +310,6 @@ hello:
 printf("Hello, World");
 
     return 0;
-
 }
 
 int main() {
@@ -320,7 +317,6 @@ int main() {
     func_block(1.0);
 
     return 0;
-
 }
 
 void f1(int hello, double world) {
@@ -328,11 +324,11 @@ void f1(int hello, double world) {
 
 }
 
-/_
+/*
 void vla_param(int n, int m, double ar[n][m]) {
 }
-_/
-
+*/
+```
 ---
 
 ### Linkage
@@ -341,12 +337,12 @@ _/
 그래서 object 파일간을 연결해주는 것이 linker다.
 
 #### Linkage.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/\*
-Linkage
+/*
+    Linkage
 
     Variables with block scope, function scope, or function prototype
     - No linkage
@@ -354,14 +350,14 @@ Linkage
     File scope variables
     - External or internal linkage
 
-\*/
+*/
 
 // translation unit
 
 int el; // file scope with external linkage (global variable)
-// file scope에 있는 변수는 마치 프로그램 전체에서 사용할 수 있는 것 처럼 사용할 수 있어서 전역변수라고 부른다.
+        // file scope에 있는 변수는 마치 프로그램 전체에서 사용할 수 있는 것 처럼 사용할 수 있어서 전역변수라고 부른다.
 static int il; // file scope with internal linkage
-// static, 이 변수의 범위가 현재 scope로 제한하는 의미
+                // static, 이 변수의 범위가 현재 scope로 제한하는 의미
 
 void testLinkage(); // 다른 파일에 있는 함수를 사용하기 위해 prototype 선언(linking)
 
@@ -374,19 +370,18 @@ int main() {
     printf("%d\n", el);
 
     return 0;
-
 }
-
+```
 #### Second.c
-
+```c
 #include <stdio.h>
 
 extern int el;
 //extern int il;
-/_
-extern 이라는 키워드를 사용하면
-어딘가 다른데 선언이 되어있는 변수를 끌어올 수 있다.
-_/
+/*
+    extern 이라는 키워드를 사용하면
+    어딘가 다른데 선언이 되어있는 변수를 끌어올 수 있다.
+*/
 
 void testLinkage() {
 
@@ -396,30 +391,28 @@ void testLinkage() {
     //printf("%d", dodgers);
 
     el++;
-
 }
-
+```
 ---
 
 ### Duration
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/\*
-Storage duration: - static storage duration // 시작할 때 부터 끝날 때 까지 메모리 자리 고정적으로 // 여기서 말하는 static은 '정적'이라는 의미 그 자체
-(Note: 'static' keyword indicates the linkage type, not the storage duration) - automatic storage duration - allocated storage duration - thread storage duration
+/*
+    Storage duration: - static storage duration // 시작할 때 부터 끝날 때 까지 메모리 자리 고정적으로 // 여기서 말하는 static은 '정적'이라는 의미 그 자체
+    (Note: 'static' keyword indicates the linkage type, not the storage duration) - automatic storage duration - allocated storage duration - thread storage duration
 
     duration은 메모리의 지속기간을 의미
 
-\*/
+*/
 
 void count() {
 
     int ct = 0;
     printf("count = %d\n", ct);
     ct++;
-
 }
 
 void static_count() {
@@ -432,7 +425,6 @@ void static_count() {
     */
     printf("static count = %d\n", ct);
     ct++;
-
 }
 
 int main() {
@@ -443,9 +435,8 @@ int main() {
     static_count();
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.4 저장 공간의 다섯 가지 분류(Five Storage Classes)
@@ -453,27 +444,27 @@ int main() {
 ---
 
 ## 12.5 자동 변수(Automatic Variables)
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Automatic storage class - Automatic storage duration, block scope, no linkage - Any variable declared in a block or function header
-_/
+/*
+    Automatic storage class - Automatic storage duration, block scope, no linkage - Any variable declared in a block or function header
+*/
 
 void func(int k);
 
 int main() // Note: main() is a function.
 {
-auto int a; // keyword auto : a storage-class specifier(거의 사용x, C++에서는 auto keyword가 완전 다른 뜻을 가진다)
-a = 1024;
-//printf("%d\n", a); // what happens if uninitialized?
-//auto int b = a _ 3; // what happens if uninitialized?
-/_
-자동변수는 빈번하게 사용되기 때문에 초기화를 해줘야한다.
-컴파일러가 자동변수는 초기화 해주지 않음
-(자동변수를 전역변수와 같이 매번 컴파일러가 0으로 초기화해주면 효율이 좋지 않으므로)
-\*/
+    auto int a; // keyword auto : a storage-class specifier(거의 사용x, C++에서는 auto keyword가 완전 다른 뜻을 가진다)
+    a = 1024;
+    //printf("%d\n", a); // what happens if uninitialized?
+    //auto int b = a _ 3; // what happens if uninitialized?
+    /*
+    자동변수는 빈번하게 사용되기 때문에 초기화를 해줘야한다.
+    컴파일러가 자동변수는 초기화 해주지 않음
+    (자동변수를 전역변수와 같이 매번 컴파일러가 0으로 초기화해주면 효율이 좋지 않으므로)
+    */
 
     int i = 1;
     int j = 2;
@@ -507,7 +498,6 @@ a = 1024;
     // block이 끝날 때 까지 m 사용 가능
 
     return 0;
-
 }
 
 void func(int k) {
@@ -517,17 +507,17 @@ void func(int k) {
     printf("i %lld\n", (long long)&i);
 
 }
-/_
-이 function이 호출되면 stack frame이 자체가 바뀌어 버리므로
-지금 까지 써온 변수들 쓸 수 없다.
-(main 함수 안에 있는 i, j에 접근할 수 없다)
-_/
+/*
+    이 function이 호출되면 stack frame이 자체가 바뀌어 버리므로
+    지금 까지 써온 변수들 쓸 수 없다.
+    (main 함수 안에 있는 i, j에 접근할 수 없다)
+*/
 
 ---
 
 ## 12.6 레지스터(Register) 변수
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 void temp(register int r) {
@@ -547,14 +537,13 @@ int main() {
 
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.7 블록 영역의 정적(Static) 변수
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 void count() {
@@ -564,7 +553,6 @@ void count() {
     ct++;
 
     //TODO: return &ct;
-
 }
 
 void static_count() {
@@ -575,16 +563,15 @@ void static_count() {
     ct++;
 
     //TODO: return &ct;
-
 }
 
-/\*
+/*
 
 - TODO: return &ct;
 - 포인터를 반환하는 경우도 꽤 있다.
 - ex) 하드웨어 관련 api 사용, 게임 엔진 등
 
-int\* count() {
+int* count() {
 
     int ct = 0;
     printf("count = %d %lld\n", ct, (long long)&ct);
@@ -592,7 +579,6 @@ int\* count() {
 
     return &ct;
     // 이런 방식 매우 안 좋음, 지역변수의 포인터를 반환하는데 지역변수는 함수를 나가면 사라지기 때문
-
 }
 
 int\* static_count() {
@@ -603,32 +589,30 @@ int\* static_count() {
 
     return &ct;
     // 메모리에 고정된 주소를 가지고 있기 때문에 써도 된다.(좋다는 뜻은 아님, 이럴바엔 차라리 전역변수 사용하자)
-
 }
 
-\*/
+*/
 
 //int func(static int i) { // Warning (Error in GCC)
 //
 //}
-/\*
-함수의 parameter에 static 넣는 경우,
-vs에서 i가 bad storage갖는다는 warning이 뜨고
-gcc로 컴파일하면 error가 나서 컴파일 불가
+/*
+    함수의 parameter에 static 넣는 경우,
+    vs에서 i가 bad storage갖는다는 warning이 뜨고
+    gcc로 컴파일하면 error가 나서 컴파일 불가
 
     paremeter의 변수는 함수가 실행이 될 때 메모리의 배정을 받는데
     static과는 맞지 않으므로
 
-\*/
+*/
 
 void counter_caller() {
-count();
+    count();
 }
 
 void static_counter_caller() {
 
     static_count();
-
 }
 
 int main() {
@@ -642,30 +626,29 @@ int main() {
     static_counter_caller();
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.8 정적 변수의 외부 연결(Static Variables with External Linkage)
 
 ### main.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Static variable with external linkage - File scope, external linkage, static storage duration - External storage class - External variables
-_/
+/*
+    Static variable with external linkage - File scope, external linkage, static storage duration - External storage class - External variables
+*/
 
 int g*int = 0; // 컴파일러가 전역변수 알아서 초기화 해주지만 가급적이면 직접 초기화 하자
 //int g_int = 7;
 double g_arr[1000] = { 0.0, };
 // 전역변수인 경우 global의 약자 g*를 앞에 잘 붙인다.
 
-/_
-Initializing External Variables
-_/
+/*
+    Initializing External Variables
+*/
 
 int x = 5; // ok, constant expression
 int y = 1 + 2; // ok, constant expression
@@ -676,15 +659,14 @@ void fun() {
 
     printf("g_int in fun() %d %p\n", g_int, &g_int);	// 전역변수 사용 가능
     g_int += 10;
-
 }
 
 void fun_sec(); // second.c에 있는 함수 선언만 해주면 외부 연결
 
 int main() {
-/_
-defining declaration vs referencing declaration
-_/
+/*
+    defining declaration vs referencing declaration
+*/
 
     extern int g_int;			// Optional		// scope 바깥에 이 변수있으니까 연결(file scope에 있다는 걸 명확히)
     //extern int g_int = 1024;	// Error in block scope
@@ -701,12 +683,11 @@ _/
     fun_sec();
 
     return 0;
-
 }
-
+```
 ### second.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf() in second.c
 
 extern int g_int;
@@ -718,7 +699,6 @@ void temp() {
     // extern int g_int;	// 여기서 초기화는 불가(block scope에서 초기화는 불가능)(BSS data segment를 다뤄야하므로 적절치 않음)
 
     g_int += 1000;
-
 }
 
 void fun_sec() {
@@ -729,30 +709,29 @@ void fun_sec() {
 
     g_int += 7;
     printf("g_int in fun_sec() %d %p\n", g_int, &g_int);	// 전역변수 사용 가능
-
 }
-
+```
 ---
 
 ## 12.9 정적 변수의 내부 연결(Static Variables with Internal Linkage)
 
 ### main.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Static variable with internal linkage - File scope, external linkage, static storage duration - Internal storage class
-_/
+/*
+    Static variable with internal linkage - File scope, external linkage, static storage duration - Internal storage class
+*/
 
 static int g_int = 123; // defining declaration
-/\*
-전역변수 사용하는 경우에 복잡해져 유지보수가 힘든경우가 있다.
+/*
+    전역변수 사용하는 경우에 복잡해져 유지보수가 힘든경우가 있다.
 
     그래서 전역변수를 file scope 내에서만 사용할 수 있도록 제한하고 싶은 경우가 있다.
     그 때 static 사용(이 scope 안으로 강제로 고정)
 
-\*/
+*/
 
 void fun();
 void fun_second();
@@ -765,7 +744,6 @@ int main() {
     fun_third();
 
     return 0;
-
 }
 
 void fun() {
@@ -774,12 +752,11 @@ void fun() {
 
     g_int += 1;
     printf("g_int in fun() %d %p", g_int, &g_int);
-
 }
-
+```
 ### second.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf() in second.c
 
 extern int g_int; // referencing declaration
@@ -789,12 +766,11 @@ void fun_second(void) {
 
     g_int += 1;
     printf("g_int in fun_second() %d %p\n", g_int, &g_int);
-
 }
-
+```
 ### third.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf() in third.c
 
 extern int g_int; // referencing declaration
@@ -804,9 +780,8 @@ void fun_second(void) {
 
     g_int += 1;
     printf("g_int in fun_third() %d %p\n", g_int, &g_int);
-
 }
-
+```
 ---
 
 ## 12.10 변수의 저장 공간(Storage Classes) 분류 요약 정리
@@ -816,13 +791,13 @@ void fun_second(void) {
 ## 12.11 함수의 저장 공간 분류
 
 ### main.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/_
-Storage Classes and Functions - Functions external (by default) or static - A function declaration is assumed to be extern
-_/
+/*
+    Storage Classes and Functions - Functions external (by default) or static - A function declaration is assumed to be extern
+*/
 
 int g_int = 123; // defining declaration
 // TODO: try static
@@ -832,11 +807,10 @@ void fun_second();
 // 함수 prototype에 모두 extern keyword가 있어야 하지만 당연한 것이므로 생략 가능
 
 int main() {
-fun();
-fun_second();
+    fun();
+    fun_second();
 
     return 0;
-
 }
 
 void fun() {
@@ -845,12 +819,11 @@ void fun() {
 
     g_int += 1;
     printf("g_int in fun() %d %p\n", g_int, &g_int);
-
 }
-
+```
 ### second.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h> // printf() in second.c
 
 extern int g_int; // referencing declaration
@@ -867,24 +840,22 @@ void fun_second(void) {
 
     g_int += 1;
     printf("g_int in fun_second() %d %p\n", g_int, &g_int);
-
 }
 
-/\*
-static void fun_second(void) {
+/*
+    static void fun_second(void) {
 
     g_int += 1;
     printf("g_int in fun_second() %d %p\n", g_int, &g_int);
-
 }
 // 이 경우에 linking error 발생
-\*/
-
+*/
+```
 ---
 
 ## 12.12 난수 생성기 모듈 만들기 예제
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h> // srand() // random number를 생성할 때 필요한 함수들이 포함됨
 #include <time.h> // time()
@@ -908,13 +879,13 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 ---
 
 유사난수(이것도 동일하게 난수 나옴)
-unsigned int next = 1; // seed값
+```c
+    unsigned int next = 1; // seed값
 
     for (int i = 0; i < 10; ++i) {
     	next = next * 1103515245 + 1234;
@@ -922,11 +893,11 @@ unsigned int next = 1; // seed값
     	next = (unsigned int)(next / 65536) % 32768;
     	printf("%d\n", (int)next);
     }
-
+```
 ---
 
 time()을 이용해서 값이 계속 바뀌게 만들기
-
+```c
     unsigned int next = (unsigned int)time(0);	// seed값
 
     for (int i = 0; i < 10; ++i) {
@@ -935,7 +906,7 @@ time()을 이용해서 값이 계속 바뀌게 만들기
     	next = (unsigned int)(next / 65536) % 32768;
     	printf("%d\n", (int)next);
     }
-
+```
 ---
 
 문제: 방금 본 코드를 확용해서 마치 rand() 함수와 같은 기능을 똑같이 만들어보기
@@ -947,34 +918,32 @@ my_rand.h에 prototype 선언 정확히 어떻게 하지?
 my_rand.c에서 void my_srand의 지역변수를 어떻게 int my_rand()에 넣을까?(parameter 없이)
 
 ### my_rand.h
-
+```c
 #pragma once
 // include를 여러번해도 중복이 되지 않게 막아준다.
 
 // some prototypes
 int my_rand();
 void my_srand(unsigned int); // 함수명에 초록줄 뜨는데 parameter가 안 맞아서 그런듯
-
+```
 ### my_rand.c
-
+```c
 void my_srand(static next) {
 
     next = next * 1103515245 + 1234;
     next = (unsigned int)(next / 65536) % 32768;
 
     my_rand();
-
 }
 
 int my_rand() {
 
     return next;
-
 }
-
+```
 ### main.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
 #include "my_rand.h"
@@ -989,21 +958,20 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 ※ 교수님 코드
 이 연습문제에서 주의깊게 봐야할 것은 모듈형태로 쪼개는 것이다.⭐
 
 ### my_rand.h
-
+```c
 #pragma once
 
 int my_rand();
 void my_srand(unsigned int seed);
-
+```
 ### my_rand.c
-
+```c
 static unsigned int next = 1; //⭐
 // static을 붙이면 외부에서 next 변수에 접근 불가
 
@@ -1014,18 +982,16 @@ int my_rand() {
     // 앞에 알고리즘 그대로 사용
 
     return (int)next;
-
 }
 
 void my_srand(unsigned int seed) {
 
     next = seed;
-
 }
-
+```
 ### main.c
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <time.h>
 #include "my_rand.h"
@@ -1040,14 +1006,13 @@ int main() {
     }
 
     return 0;
-
 }
-
+```
 ---
 
-#12.13 메모리 동적 할당(Dynamic Storage Allocation)
-
-#define \_CRT_SECURE_NO_WARNINGS
+## 12.13 메모리 동적 할당(Dynamic Storage Allocation)
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h> // malloc(), free()
 
@@ -1159,16 +1124,15 @@ int main() {
     */
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.14 메모리 누수(Leak)와 free()의 중요성
 
 (비주얼 스튜디오 진단 도구(Diagnostic Tool) 사용법)
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1202,14 +1166,13 @@ int main() {
     printf("Dummy Output\n");
 
     return 0;
-
 }
-
+```
 ---
 
 block 나가기 전에 free()를 이용해서 메모리 없애기
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1246,14 +1209,13 @@ int main() {
     printf("Dummy Output\n");
 
     return 0;
-
 }
-
+```
 ---
 
 동적할당의 이러한 특성을 이용하기
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1292,15 +1254,14 @@ int main() {
     printf("Dummy Output\n");
 
     return 0;
-
 }
-
+```
 ---
 
 메모리 누수(free하지 않는 경우에 계속 할당 만 받으면 어떻게 되는가)
 (컴터 문제 생길 수 있으니 debug 조심히)
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1333,9 +1294,8 @@ int main() {
     printf("Dummy Output\n");
 
     return 0;
-
 }
-
+```
 메모리 누수
 Process Memory가 계속 증가한다.
 컴퓨터 한도에 도달하면 문제 생김
@@ -1343,8 +1303,8 @@ Process Memory가 계속 증가한다.
 ---
 
 위에서 free(ptr);를 추가하면 메모리 누수x
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1377,9 +1337,8 @@ int main() {
     printf("Dummy Output\n");
 
     return 0;
-
 }
-
+```
 할당받고 반납하고를 계속 반복하기 때문에 메모리 누수x
 
 ---
@@ -1390,8 +1349,8 @@ x86일 때 컴퓨터가 가진 heap 메모리 전부 사용하는 것이 아니�
 ---
 
 ## 12.15 동적 할당 메모리를 배열처럼 사용하기
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1415,15 +1374,15 @@ int main() {
     ptr = NULL;
 
     return 0;
-
 }
-
+```
 ---
 
 1차원 배열
-/_
-1D array
-_/
+```c
+    /*
+        1D array
+    */
 
     int n = 3;
     int * ptr = (int*)malloc(sizeof(int) * n);
@@ -1442,11 +1401,11 @@ _/
     	어마어마하게 큰 메모리 다룰 때는
     	배열보다 동적할당 메모리 사용
     */
-
+```
 ---
 
 2차원 배열
-
+```c
     /*
     	2D array
     */
@@ -1501,11 +1460,11 @@ _/
     		printf("%d ", *(ptr + c + col * r));
     	printf("\n");
     }
-
+```
 ---
 
 다차원 배열
-
+```c
     /*
     	실용적인 측면(결국 우리가 사용하는 컴퓨터 메모리의 구조는 1차원이므로)
 
@@ -1573,12 +1532,12 @@ _/
     	}
     	printf("\n");
     }
-
+```
 ---
 
 ## 12.16 calloc(), realloc()
-
-#define \_CRT_SECURE_NO_WARINGS
+```c
+#define _CRT_SECURE_NO_WARINGS
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -1641,21 +1600,20 @@ int main() {
     free(ptr2);
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.17 동적 할당 메모리와 저장 공간 분류
-
+```c
 #include <stdio.h>
 #include <stdlib.h>
 
 int g = 123;
 
 void func() {
-int i = 123;
-printf("Local variable \t%lld\n", (long long)& i);
+    int i = 123;
+    printf("Local variable \t%lld\n", (long long)& i);
 }
 
 int main() {
@@ -1681,16 +1639,15 @@ int main() {
     free(ptr);
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.18 자료형 한정자들(Type Qualifiers)
 
 const, volatile, restrict
-
-#define \_CRT_SECURE_NO_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // memcpy
@@ -1809,25 +1766,24 @@ int main() {
     free(restar);
 
     return 0;
-
 }
-
+```
 ---
 
 ## 12.19 멀티 쓰레딩(Multi_Threading)
-
-#define \_CRT*SECURE_NO_WARNINGS
+```c
+#define _CRT*SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <windows.h>
 /*
-C언어 표준에는 멀티스레딩이 들어와 있지 않다.
-대부분의 경우 운영체제에서 제공하는 API 사용
-운영체제에 따라서 사용하는 프로그래밍 기술이 다르다.
-\_/
+    C언어 표준에는 멀티스레딩이 들어와 있지 않다.
+    대부분의 경우 운영체제에서 제공하는 API 사용
+    운영체제에 따라서 사용하는 프로그래밍 기술이 다르다.
+*/
 
 //\_Atomic int acnt = 0; // NA
 
-DWORD WINAPI ThreadFunc(void\* data) {
+DWORD WINAPI ThreadFunc(void* data) {
 
     int n = 1;
     Sleep(1000);
@@ -1835,7 +1791,6 @@ DWORD WINAPI ThreadFunc(void\* data) {
     //acnt += n;	// NA
     printf("Printing from Thread \n");
     return 0;
-
 }
 
 int main() {
@@ -1844,13 +1799,12 @@ int main() {
 
     if (thread)
     	WaitForSingleObject(thread, INFINITE);
-
 }
 
 // 이거보다 gcc에서 일반적으로 사용되는 코드가 있다.
 // online gcc compiler 구글링
 // www.onlinegdb.com/online_c_compiler
-/\*
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h> // sleep().
@@ -1872,11 +1826,10 @@ void* myThreadFun(void* vargp) {
     }
 
     return NULL;
-
 }
 
 int main() {
-pthread_t thread_id1, thread_id2;
+    pthread_t thread_id1, thread_id2;
 
     printf("Before Thread\n");
 
@@ -1890,15 +1843,14 @@ pthread_t thread_id1, thread_id2;
     printf("Atomic %d\n", acnt);
 
     return 0;
-
 }
-\*/
+*/
 
-/_
-To compile
-& gcc <file-name.c> -o <output-file-name> -lpthread
-To run
-& ./<output-file-name>
-_/
-
+/*
+    To compile
+    & gcc <file-name.c> -o <output-file-name> -lpthread
+    To run
+    & ./<output-file-name>
+*/
+```
 ---
