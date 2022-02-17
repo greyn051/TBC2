@@ -417,9 +417,11 @@ int main() {
 }
 ```
 //
-```c
+
+
 ## 10.5 2차원 배열과 메모리
 
+```c
 #include <stdio.h>
 
 int main() {
